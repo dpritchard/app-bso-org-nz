@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Page;
 use Illuminate\Http\Request;
 
-
+use Illuminate\Validation\Rule;
+use Validator;
 
 
 class PageController extends Controller
@@ -58,13 +59,17 @@ class PageController extends Controller
     {
         $this->authorize('create', Page::class);
 
+        $request->merge(['uri' => $request->uri ?? '']); // Incase this is the index (which would be NULL at this point)
+
+        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {});
+
         $this->validate($request, [
             'title' => 'required',
-            'uri' => 'unique:pages'
+            'uri' => 'unique:pages,uri'
         ]);
 
         $page = new Page;
-        $page->uri = $request->uri ?? '';
+        $page->uri = $request->uri;
         $page->title = $request->title;
         $page->body = $request->body;
         $page->save();
@@ -131,12 +136,16 @@ class PageController extends Controller
     {
         $this->authorize('create', Page::class);
 
+        $request->merge(['uri' => $request->uri ?? '']);  // Incase this is the index (which would be NULL at this point)
+
+        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {});
+
         $this->validate($request, [
             'title' => 'required',
-            'uri' => 'unique:pages'
+            'uri' => Rule::unique('pages', 'uri')->ignore($page->id),
         ]);
 
-        $page->uri = $request->uri ?? '';
+        $page->uri = $request->uri;
         $page->title = $request->title;
         $page->body = $request->body;
         $page->save();
