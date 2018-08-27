@@ -1,16 +1,16 @@
-@if (auth()->user()->authoriseRoles(['webmaster']))
+@if  (auth()->user()->authoriseRoles(['webmaster']))
 <a class="nav-link" href="/admin/page">Administer Pages</a>
 @endif
 
-@if (auth()->user()->authoriseRoles(['webmaster']))
+@if  (auth()->user()->authoriseRoles(['webmaster']))
 <a class="nav-link" href="/admin/event">Administer Events</a>
 @endif
 
-@if (auth()->user()->authoriseRoles())
+@if  (auth()->user()->authoriseRoles())
 <a class="nav-link" href="/admin/file">Administer Files</a>
 @endif
 
-@if (auth()->user()->authoriseRoles(['treasurer']))
+@if  (auth()->user()->authoriseRoles(['treasurer']))
 <a class="nav-link" href="/admin/subscription">Administer Subscriptions</a>
 @endif
 

@@ -10,23 +10,23 @@ class AdminTest extends TestCase
 {
     public function setUp()
     {
-      parent::setUp();
+        parent::setUp();
 
-      $this->event_admin_link = '/admin/event';
-      $this->page_admin_link = '/admin/page';
-      $this->file_admin_link = '/admin/file';
-      $this->subscription_admin_link = '/admin/subscription';
+        $this->event_admin_link = '/admin/event';
+        $this->page_admin_link = '/admin/page';
+        $this->file_admin_link = '/admin/file';
+        $this->subscription_admin_link = '/admin/subscription';
     }
 
     /** @test */
-    function a_guest_cannot_see_the_dashboard()
+    public function a_guest_cannot_see_the_dashboard()
     {
         $this->get('/admin')
              ->assertStatus(302);
     }
 
     /** @test */
-    function a_regular_user_cannot_see_the_dashboard()
+    public function a_regular_user_cannot_see_the_dashboard()
     {
         $this->signIn();
 
@@ -35,7 +35,7 @@ class AdminTest extends TestCase
     }
 
     /** @test */
-    function a_treasurer_can_see_the_dashboard()
+    public function a_treasurer_can_see_the_dashboard()
     {
         $this->signIn($this->treasurer);
 
@@ -44,7 +44,7 @@ class AdminTest extends TestCase
     }
 
     /** @test */
-    function a_webmaster_can_see_the_dashboard()
+    public function a_webmaster_can_see_the_dashboard()
     {
         $this->signIn($this->webmaster);
 
@@ -53,7 +53,7 @@ class AdminTest extends TestCase
     }
 
     /** @test */
-    function a_super_admin_can_see_the_dashboard()
+    public function a_super_admin_can_see_the_dashboard()
     {
         $this->signIn($this->super);
 
@@ -62,7 +62,7 @@ class AdminTest extends TestCase
     }
 
     /** @test */
-    function a_treasurer_can_see_the_subscription_link_only()
+    public function a_treasurer_can_see_the_subscription_link_only()
     {
         $this->signIn($this->treasurer);
 
@@ -75,11 +75,10 @@ class AdminTest extends TestCase
         $response->assertDontSee($this->file_admin_link);
 
         $response->assertSee($this->subscription_admin_link);
-
     }
 
     /** @test */
-    function a_webmaster_can_see_the_event_and_page_link_only()
+    public function a_webmaster_can_see_the_event_and_page_link_only()
     {
         $this->signIn($this->webmaster);
 
@@ -92,11 +91,10 @@ class AdminTest extends TestCase
         $response->assertDontSee($this->file_admin_link);
 
         $response->assertDontSee($this->subscription_admin_link);
-
     }
 
     /** @test */
-    function a_super_admin_can_see_all_links()
+    public function a_super_admin_can_see_all_links()
     {
         $this->signIn($this->super);
 
@@ -109,7 +107,5 @@ class AdminTest extends TestCase
         $response->assertSee($this->file_admin_link);
 
         $response->assertSee($this->subscription_admin_link);
-
     }
-
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 base=/var/www/
-approot=${base}dev.bso.org.nz/
+approot=${base}sandbox.bso.org.nz/
 remote=git@github.com:dpritchard/app-bso-org-nz.git
 
 cd $approot

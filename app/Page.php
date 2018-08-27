@@ -10,12 +10,11 @@ class Page extends AppModel
 
     public function path()
     {
-      return (string) '/' . $this->uri;
+        return (string) '/' . $this->uri;
     }
 
     public function getBodyHtmlAttribute()
     {
         return markdown($this->body);
     }
-
 }

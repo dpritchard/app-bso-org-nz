@@ -10,9 +10,13 @@ class Event extends AppModel
 {
     protected $dates = ['start', 'finish'];
 
+    /**
+     * Return a url path for this model
+     * @return string A path
+     */
     public function path()
     {
-      return (string) '/e/' . $this->hashid;
+        return (string) '/e/' . $this->hashid;
     }
 
     /**

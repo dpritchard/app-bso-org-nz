@@ -17,7 +17,7 @@ class FileController extends Controller
     */
     public function __construct()
     {
-        $this->middleware('auth')->except(['show']);;
+        $this->middleware('auth')->except(['show']);
     }
 
     /**
@@ -41,13 +41,13 @@ class FileController extends Controller
      */
     public function create()
     {
-      $this->authorize('administer', File::class);
+        $this->authorize('administer', File::class);
 
-      $file = new File;
+        $file = new File;
 
-      $update = false;
+        $update = false;
 
-      return view('file.admin.form',  compact('file', 'update'));
+        return view('file.admin.form', compact('file', 'update'));
     }
 
     /**
@@ -58,9 +58,9 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-      $this->authorize('create', File::class);
+        $this->authorize('create', File::class);
 
-      $this->validate($request, [
+        $this->validate($request, [
           'file' => 'required',
           'visibility' => [
               'nullable',
@@ -68,25 +68,24 @@ class FileController extends Controller
           ]
       ]);
 
-      $file = new File;
+        $file = new File;
 
-      $file->name = request()->file_name ?? request()->file('file')->getClientOriginalName();
+        $file->name = request()->file_name ?? request()->file('file')->getClientOriginalName();
 
-      $file->visibility = request()->visibility ?? 'public'; // NOTE: Public by default!
+        $file->visibility = request()->visibility ?? 'public'; // NOTE: Public by default!
 
-      $file->storage_path = request()->file('file')->store('files');
+        $file->storage_path = request()->file('file')->store('files');
 
-      $file->save();
+        $file->save();
 
-      if ($request->expectsJson()) {
-        return response()->json([
+        if ($request->expectsJson()) {
+            return response()->json([
             'md_link' => $file->md_link(),
             'html_link' => $file->html_link()
         ]);
-      } else {
-          return back()->with('success', 'File saved!');
-      }
-
+        } else {
+            return back()->with('success', 'File saved!');
+        }
     }
 
     /**
@@ -98,11 +97,11 @@ class FileController extends Controller
     public function show(File $file, $name = null)
     {
         // If guest and file is private, try login...
-        if(auth()->guest() && $file->visibility == 'private'){
+        if (auth()->guest() && $file->visibility == 'private') {
             throw new AuthenticationException;
         }
         // If private, authorise...
-        if($file->visibility == 'private'){
+        if ($file->visibility == 'private') {
             $this->authorize('view', $file);
         }
 

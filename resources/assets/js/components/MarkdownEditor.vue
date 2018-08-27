@@ -75,30 +75,30 @@ export default {
         },
         updatePreview() {
             axios.post('/api/render-md', {
-                input: this.value,
-            })
-            .then((response) => {
-                // console.log(response);
-                this.preview = response.data;
-            })
-            .catch((error) => {
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    console.log(error.response);
-                    this.preview = '<code>Markdown preview failed (' + error.response.data.message + ')</code>';
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                    // http.ClientRequest in node.js
-                    console.log(error.request);
-                    this.preview = '<code>Markdown preview failed (request failed to send)</code>';
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log(error);
-                    this.preview = '<code>Markdown preview failed (' + error.message + ')</code>';
-                }
-            })
+                    input: this.value,
+                })
+                .then((response) => {
+                    // console.log(response);
+                    this.preview = response.data;
+                })
+                .catch((error) => {
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log(error.response);
+                        this.preview = '<code>Markdown preview failed (' + error.response.data.message + ')</code>';
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                        // http.ClientRequest in node.js
+                        console.log(error.request);
+                        this.preview = '<code>Markdown preview failed (request failed to send)</code>';
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log(error);
+                        this.preview = '<code>Markdown preview failed (' + error.message + ')</code>';
+                    }
+                })
         },
         placeholderText(file) {
             return '[Uploading: ' + file.name + ']'
@@ -113,7 +113,7 @@ export default {
             // console.log("REPLACING");
             this.value = this.value.replace(this.placeholderText(file), replacement);
         },
-        insertAtCursor(insert){
+        insertAtCursor(insert) {
             // get cursor's position:
             let startPos = this.$refs.editor.selectionStart;
             let endPos = this.$refs.editor.selectionEnd;

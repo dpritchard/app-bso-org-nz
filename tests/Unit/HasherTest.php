@@ -11,7 +11,7 @@ class HasherTest extends TestCase
 {
 
     /** @test */
-    function it_can_hash_and_unhash_an_integer()
+    public function it_can_hash_and_unhash_an_integer()
     {
         $id = 1;
         $hashid = Hasher::encode($id);

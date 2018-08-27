@@ -14,7 +14,7 @@ class FileTest extends TestCase
 {
 
     /** @test */
-    function it_can_get_its_mime_type()
+    public function it_can_get_its_mime_type()
     {
         Storage::fake();
         Storage::disk()->put('test.file', 'NOTHING');

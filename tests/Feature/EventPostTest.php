@@ -12,14 +12,14 @@ use App\Contact;
 class EventPostTest extends TestCase
 {
     /** @test */
-    function a_guest_cannot_create_events()
+    public function a_guest_cannot_create_events()
     {
         $this->post('/admin/event')
              ->assertRedirect(route('login'));
     }
 
     /** @test */
-    function a_regular_user_cannot_create_events()
+    public function a_regular_user_cannot_create_events()
     {
         $this->signIn();
 
@@ -28,7 +28,7 @@ class EventPostTest extends TestCase
     }
 
     /** @test */
-    function a_treasurer_user_cannot_create_events()
+    public function a_treasurer_user_cannot_create_events()
     {
         $this->signIn($this->treasurer);
 
@@ -37,7 +37,7 @@ class EventPostTest extends TestCase
     }
 
     /** @test */
-    function a_webmaster_can_create_events()
+    public function a_webmaster_can_create_events()
     {
         $this->signIn($this->webmaster);
 
@@ -49,7 +49,7 @@ class EventPostTest extends TestCase
     }
 
     /** @test */
-    function the_super_admin_can_create_events()
+    public function the_super_admin_can_create_events()
     {
         $this->signIn($this->super);
 
@@ -61,14 +61,14 @@ class EventPostTest extends TestCase
     }
 
     /** @test */
-    function it_does_not_allow_submission_of_invalid_input()
+    public function it_does_not_allow_submission_of_invalid_input()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $this->post('/admin/event')
+        $this->post('/admin/event')
            ->assertSessionHasErrors();
 
-      $this->json('post', '/admin/event')
+        $this->json('post', '/admin/event')
            ->assertStatus(422);
     }
 
@@ -83,5 +83,4 @@ class EventPostTest extends TestCase
         $submission['category'] = create('App\Category')->id;
         return $submission;
     }
-
 }

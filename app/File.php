@@ -7,44 +7,69 @@ use Illuminate\Support\Facades\Storage;
 
 class File extends AppModel
 {
+    /**
+     * Return a url path for this model
+     * @return string A path
+     */
     public function path()
     {
-      return (string) '/f/' . $this->hashid . '/' . $this->name;
+        return (string) '/f/' . $this->hashid . '/' . $this->name;
     }
 
+    /**
+     * The mime type attributes (e.g. image/jpg, text/plain etc...)
+     * @return string The mime type
+     */
     public function getMimeAttribute()
     {
         return Storage::disk()->mimeType($this->storage_path);
     }
 
+    /**
+     * Is the file an image?
+     * @return boolean Is the file an image?
+     */
     public function getIsImageAttribute()
     {
-        return str_contains($this->mime, 'image/');;
+        return str_contains($this->mime, 'image/');
     }
 
+    /**
+     * Returns a markdown formatted link to the fully qualified url
+     * @return string The formatted link
+     */
     public function md_link()
     {
         $furl = url($this->path());
-        if($this->is_image){
+        if ($this->is_image) {
             return "![$this->name]($furl)";
         } else {
             return "[$this->name]($furl)";
         }
     }
 
+    /**
+     * Returns an HTML formatted link to the fully qualified url
+     * @return string The formatted link
+     */
     public function html_link()
     {
         $furl = url($this->path());
-        if($this->is_image){
+        if ($this->is_image) {
             return "<img src='$furl' alt='$this->name'/>";
         } else {
             return "<a href='$furl'>$this->name</a>";
         }
     }
 
+    /**
+     * Sanitise files names, replacing UTF8 with ASCII, convert to lower and create kebab-case.
+     * @param  string $text The input text that needs sanitised
+     * @return string       Sanitised text
+     */
     private function sanitise_filename($text)
     {
-        $text = transliterator_transliterate('Any-Latin; Latin-ASCII;',$text);
+        $text = transliterator_transliterate('Any-Latin; Latin-ASCII;', $text);
         $text = strtolower($text);
         $text = preg_replace('/[^\\w\\d\\.]+/u', '-', $text);
         $text = preg_replace('/(-\\.)+/u', '.', $text);
@@ -68,6 +93,4 @@ class File extends AppModel
     {
         $this->attributes['name'] = $this->sanitise_filename($value);
     }
-
-
 }

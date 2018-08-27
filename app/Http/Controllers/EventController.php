@@ -140,7 +140,7 @@ class EventController extends Controller
     {
         $this->authorize('administer', Event::class);
 
-        $update = TRUE;
+        $update = true;
 
         $categories = Category::select(['id', 'type'])->get();
 

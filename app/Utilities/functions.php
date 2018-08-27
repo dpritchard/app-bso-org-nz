@@ -18,10 +18,11 @@ function markdown($text)
  * Join a string with a natural language conjunction at the end.
  * https://gist.github.com/angry-dan/e01b8712d6538510dd9c
  */
-function natural_language_join(array $list, $conjunction = 'and') {
-  $last = array_pop($list);
-  if ($list) {
-    return implode(', ', $list) . ' ' . $conjunction . ' ' . $last;
-  }
-  return $last;
+function natural_language_join(array $list, $conjunction = 'and')
+{
+    $last = array_pop($list);
+    if ($list) {
+        return implode(', ', $list) . ' ' . $conjunction . ' ' . $last;
+    }
+    return $last;
 }

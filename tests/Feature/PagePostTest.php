@@ -10,14 +10,14 @@ use App\Page;
 class PagePostTest extends TestCase
 {
     /** @test */
-    function a_guest_cannot_create_pages()
+    public function a_guest_cannot_create_pages()
     {
         $this->post('/admin/page')
              ->assertRedirect(route('login'));
     }
 
     /** @test */
-    function a_regular_user_cannot_create_pages()
+    public function a_regular_user_cannot_create_pages()
     {
         $this->signIn();
 
@@ -26,7 +26,7 @@ class PagePostTest extends TestCase
     }
 
     /** @test */
-    function a_treasurer_user_cannot_create_pages()
+    public function a_treasurer_user_cannot_create_pages()
     {
         $this->signIn($this->treasurer);
 
@@ -35,7 +35,7 @@ class PagePostTest extends TestCase
     }
 
     /** @test */
-    function a_webmaster_can_create_pages()
+    public function a_webmaster_can_create_pages()
     {
         $this->signIn($this->webmaster);
 
@@ -47,7 +47,7 @@ class PagePostTest extends TestCase
     }
 
     /** @test */
-    function the_super_admin_can_create_pages()
+    public function the_super_admin_can_create_pages()
     {
         $this->signIn($this->super);
 
@@ -59,110 +59,110 @@ class PagePostTest extends TestCase
     }
 
     /** @test */
-    function it_does_not_allow_submission_of_invalid_input()
+    public function it_does_not_allow_submission_of_invalid_input()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $this->post('/admin/page')
+        $this->post('/admin/page')
            ->assertSessionHasErrors();
 
-      $this->json('post', '/admin/page')
+        $this->json('post', '/admin/page')
            ->assertStatus(422);
     }
 
     /** @test */
-    function it_does_not_allow_submission_of_a_duplicate_index_uri()
+    public function it_does_not_allow_submission_of_a_duplicate_index_uri()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page = create(Page::class, ['uri' => '']);
-      $submission = $this->mockForm();
-      $submission['uri'] = '';
+        $page = create(Page::class, ['uri' => '']);
+        $submission = $this->mockForm();
+        $submission['uri'] = '';
 
-      $this->post('/admin/page', $submission)
+        $this->post('/admin/page', $submission)
            ->assertSessionHasErrors();
 
-      $this->json('post', '/admin/page', $submission)
+        $this->json('post', '/admin/page', $submission)
            ->assertStatus(422);
     }
 
     /** @test */
-    function it_does_not_allow_submission_of_a_duplicate_uri()
+    public function it_does_not_allow_submission_of_a_duplicate_uri()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page = create(Page::class, ['uri' => 'test']);
-      $submission = $this->mockForm();
-      $submission['uri'] = 'test';
+        $page = create(Page::class, ['uri' => 'test']);
+        $submission = $this->mockForm();
+        $submission['uri'] = 'test';
 
-      $this->post('/admin/page', $submission)
+        $this->post('/admin/page', $submission)
            ->assertSessionHasErrors();
 
-      $this->json('post', '/admin/page', $submission)
+        $this->json('post', '/admin/page', $submission)
            ->assertStatus(422);
     }
 
     /** @test */
-    function it_allows_updating_of_index_with_self()
+    public function it_allows_updating_of_index_with_self()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page_1 = create(Page::class, ['uri' => '']);
-      $submission = $page_1->toArray();
-      $submission['title'] = 'A new title';
+        $page_1 = create(Page::class, ['uri' => '']);
+        $submission = $page_1->toArray();
+        $submission['title'] = 'A new title';
 
-      $this->followingRedirects()
+        $this->followingRedirects()
            ->put('/admin/page/' . $page_1->hashid, $submission)
            ->assertSee($submission['title']);
     }
 
     /** @test */
-    function it_allows_updating_of_non_index_with_self()
+    public function it_allows_updating_of_non_index_with_self()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page_1 = create(Page::class, ['uri' => 'test']);
-      $submission = $page_1->toArray();
-      $submission['title'] = 'A new title';
+        $page_1 = create(Page::class, ['uri' => 'test']);
+        $submission = $page_1->toArray();
+        $submission['title'] = 'A new title';
 
-      $this->followingRedirects()
+        $this->followingRedirects()
            ->put('/admin/page/' . $page_1->hashid, $submission)
            ->assertSee($submission['title']);
     }
 
     /** @test */
-    function it_does_not_allow_updating_to_exisiting_index_uri()
+    public function it_does_not_allow_updating_to_exisiting_index_uri()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page_1 = create(Page::class, ['uri' => '']);
-      $page_2 = create(Page::class, ['uri' => 'test']);
+        $page_1 = create(Page::class, ['uri' => '']);
+        $page_2 = create(Page::class, ['uri' => 'test']);
 
-      $submission = $page_2->toArray();
-      $submission['uri'] = '';
+        $submission = $page_2->toArray();
+        $submission['uri'] = '';
 
-      $this->put('/admin/page/' . $page_2->hashid, $submission)
+        $this->put('/admin/page/' . $page_2->hashid, $submission)
            ->assertSessionHasErrors();
 
-      $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
+        $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
            ->assertStatus(422);
     }
 
     /** @test */
-    function it_does_not_allow_updating_to_exisiting_uri()
+    public function it_does_not_allow_updating_to_exisiting_uri()
     {
-      $this->signIn($this->webmaster);
+        $this->signIn($this->webmaster);
 
-      $page_1 = create(Page::class, ['uri' => 'test']);
-      $page_2 = create(Page::class, ['uri' => 'test2']);
+        $page_1 = create(Page::class, ['uri' => 'test']);
+        $page_2 = create(Page::class, ['uri' => 'test2']);
 
-      $submission = $page_2->toArray();
-      $submission['uri'] = 'test';
+        $submission = $page_2->toArray();
+        $submission['uri'] = 'test';
 
-      $this->put('/admin/page/' . $page_2->hashid, $submission)
+        $this->put('/admin/page/' . $page_2->hashid, $submission)
            ->assertSessionHasErrors();
 
-      $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
+        $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
            ->assertStatus(422);
     }
 
@@ -172,5 +172,4 @@ class PagePostTest extends TestCase
         $submission = $page->toArray();
         return $submission;
     }
-
 }

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Validator;
 
-
 class PageController extends Controller
 {
     /**
@@ -16,7 +15,8 @@ class PageController extends Controller
     */
     public function __construct()
     {
-        $this->middleware('auth')->except(['show']);;
+        $this->middleware('auth')->except(['show']);
+        ;
     }
 
     /**
@@ -61,7 +61,8 @@ class PageController extends Controller
 
         $request->merge(['uri' => $request->uri ?? '']); // Incase this is the index (which would be NULL at this point)
 
-        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {});
+        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {
+        });
 
         $this->validate($request, [
             'title' => 'required',
@@ -138,7 +139,8 @@ class PageController extends Controller
 
         $request->merge(['uri' => $request->uri ?? '']);  // Incase this is the index (which would be NULL at this point)
 
-        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {});
+        Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {
+        });
 
         $this->validate($request, [
             'title' => 'required',
