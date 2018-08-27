@@ -14,7 +14,7 @@ class File extends AppModel
 
     public function getMimeAttribute()
     {
-        return Storage::disk($this->visibility)->mimeType($this->storage_path);
+        return Storage::disk()->mimeType($this->storage_path);
     }
 
     public function getIsImageAttribute()

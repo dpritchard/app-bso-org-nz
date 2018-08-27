@@ -22,8 +22,7 @@
         "popper.js": "^1.12",
         "tempusdominus-bootstrap-4": "^5.0.1",
         "v-autocomplete": "^1.8.2",
-        "vue": "^2.5.7",
-        "vue2-dropzone": "^3.2.2"
+        "vue": "^2.5.7"
     },
     "dependencies": {}
 }
