@@ -1,0 +1,27 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// FontAwesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+// tempusdominus-bootstrap-4
+@import '~tempusdominus-bootstrap-4/src/sass/_tempusdominus-bootstrap-4.scss';
+
+@import '~v-autocomplete/dist/v-autocomplete.css';
+
+.banner {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.banner > a {
+    text-decoration: none;
+    color: inherit;
+}
