@@ -1,4 +1,4 @@
-{{-- <a class="nav-link" href="/">BSO Home</a> --}}
+<a class="nav-link" href="/">BSO Home</a>
 <a class="nav-link" href="/diary">Diary</a>
 <a class="nav-link" href="/past-events">Past Events</a>
 <a class="nav-link" href="/trip-guidelines">Trip Guidelines</a>

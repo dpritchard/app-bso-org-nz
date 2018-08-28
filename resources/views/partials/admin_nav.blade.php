@@ -1,3 +1,5 @@
+<a class="nav-link" href="/">BSO Home</a>
+
 @if  (auth()->user()->authoriseRoles(['webmaster']))
 <a class="nav-link" href="/admin/page">Administer Pages</a>
 @endif
