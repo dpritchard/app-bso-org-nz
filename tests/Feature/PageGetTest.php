@@ -32,11 +32,18 @@ class PageGetTest extends TestCase
     /** @test */
     public function it_can_load_and_parse_markdown_to_a_page()
     {
-        $response = $this->get($this->page->uri);
+        $page = create(Page::class, [
+            'title' => 'Some *italics* title',
+            'body' => 'A body with **bold**'
+        ]);
+
+        $response = $this->get($page->uri);
 
         $response->assertStatus(200);
 
-        $response->assertSee('<p>'.$this->page->body.'</p>');
+        $response->assertSee('Some <em>italics</em> title');
+
+        $response->assertSee('A body with <strong>bold</strong>');
     }
 
     /** @test */

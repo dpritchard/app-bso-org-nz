@@ -6,7 +6,7 @@
 
 @foreach  ($events as $event)
 <div>
-    <h2><a href="{{ $event->path() }}">{{ $event->title }}</a></h2>
+    <h2><a href="{{ $event->path() }}">{!! $event->title_html !!}</a></h2>
     <p class="mb-0">{{ $event->start->format('l jS \\of F Y\\, h:i A') }} <small>({{ $event->start->diffForHumans() }})</small></p>
     <p>Contact: {{ $event->contact->name }}
         @if  ($event->contact->email)

@@ -17,4 +17,9 @@ class Page extends AppModel
     {
         return markdown($this->body);
     }
+
+    public function getTitleHtmlAttribute()
+    {
+        return markdown($this->title, $block = false);
+    }
 }

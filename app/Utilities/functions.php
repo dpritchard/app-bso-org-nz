@@ -6,12 +6,16 @@
 
 // https://github.com/erusev/parsedown#security
 // http://htmlpurifier.org
-function markdown($text)
+function markdown($text, $block = true)
 {
     $parser = new ParsedownExtra;
     $purifier = new HTMLPurifier;
-    $dirty_html = $parser->text($text);
-    return $dirty_html;
+    if($block){
+        $dirty_html = $parser->text($text);
+    } else {
+        $dirty_html = $parser->line($text);
+    }
+    return $purifier->purify($dirty_html);
 }
 
 /**

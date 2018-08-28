@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="d-flex align-items-center">
-    <div><h1>{{ $event->title }}</h1>
+    <div>
+        <h1>{!! $event->title_html !!}</h1>
     </div>
     @can('administer',  $event)
     <div class="ml-3 mb-2"><a class="badge badge-warning" href="/admin/event/{{ $event->hashid }}/edit">Edit</a></div>
