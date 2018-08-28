@@ -56,7 +56,10 @@ export default {
             dropzoneSettings: {
                 url: "/admin/file",
                 createImageThumbnails: false,
-                clickable: ".dropzone-click-trigger"
+                clickable: ".dropzone-click-trigger",
+                resizeWidth: 1000,
+                resizeHeight: 750,
+                resizeMethod: 'contain'
             }
         }
     },
