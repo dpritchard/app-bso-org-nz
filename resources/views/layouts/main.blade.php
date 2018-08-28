@@ -1,10 +1,12 @@
-@extends('layouts.base') 
+@extends('layouts.base')
 
 @section('main')
 <div class="row">
-    <nav class="nav flex-column col-md-3">
-        @include('partials.main_nav')
-    </nav>
+    <div class="col-12 col-md-3 col-xl-2">
+        <nav class="sidebar collapse" id="sidebar" style="">
+            @include('partials.main_nav')
+        </nav>
+    </div>
 
     <main class="col">
         @yield('content')

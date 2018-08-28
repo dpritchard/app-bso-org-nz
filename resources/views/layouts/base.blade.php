@@ -23,8 +23,15 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="d-flex justify-content-center navbar">
-                <h1 class="banner"><a href="{{ url('/') }}">Botanical Society of Otago</a></h1>
+            <div class="d-flex justify-content-between justify-content-md-center align-items-center">
+                <div>
+                    <h1 class="banner"><a href="{{ url('/') }}"><span class="d-none d-md-inline">Botanical Society of Otago</span><span class="d-md-none">BSO</span></a></h1>
+                </div>
+                <div class="menu-toggle">
+                    <button class="btn btn-outline-dark d-md-none" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle docs navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
 
             @yield('main')
