@@ -20,4 +20,8 @@
 </div>
 @endforeach
 
+@if ($events instanceof \Illuminate\Pagination\AbstractPaginator)
+    {{ $events->links() }}
+@endif
+
 @endsection
