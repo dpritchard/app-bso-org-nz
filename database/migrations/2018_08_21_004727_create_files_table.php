@@ -20,6 +20,7 @@ class CreateFilesTable extends Migration
             $table->string('storage_path');
             $table->string('visibility')->default('public');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

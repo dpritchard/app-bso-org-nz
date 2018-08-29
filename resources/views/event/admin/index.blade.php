@@ -10,7 +10,7 @@
 
 @foreach  ($events as $event)
 <div class="row mb-1">
-    <div class="col"><a href="{{ $event->path() }}">{{ $event->start->toFormattedDateString() }} | {{ $event->title }}</a></div>
+    <div class="col"><a href="{{ $event->path() }}">{{ $event->start->toFormattedDateString() }} | {!! $event->title_html !!}</a></div>
     <div class="col-2 text-right">
         <a class="btn btn-primary btn-sm" href="{{ $event->path() }}">View</a>
         <a class="btn btn-warning btn-sm" href="/admin/event/{{ $event->hashid }}/edit">Edit</a>
