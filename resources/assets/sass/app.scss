@@ -10,19 +10,17 @@
 @import '~tempusdominus-bootstrap-4/src/sass/_tempusdominus-bootstrap-4.scss';
 @import '~v-autocomplete/dist/v-autocomplete.css';
 
-.banner {
+.banner-text {
     font-weight: bold;
     font-size: 3em;
 }
 
-.banner > a {
-    text-decoration: none;
-    color: inherit;
+.banner-logo {
+    max-height: 100px;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    @extend .img-fluid;
 }
 
 .sidebar {
@@ -33,7 +31,7 @@ img {
 }
 
 .facebook-logo {
-    max-height: 20px
+    max-height: 20px;
 }
 
 table {

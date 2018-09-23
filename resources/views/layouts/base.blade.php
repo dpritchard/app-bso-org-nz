@@ -23,9 +23,13 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="d-flex justify-content-between justify-content-md-center align-items-center">
+            <div class="d-flex justify-content-between justify-content-md-between align-items-center mt-2">
+                <a href="{{ url('/') }}">
+                    <img class="banner-logo" src="{{ secure_asset('img/logo_web_no_text.png') }}">
+                </a>
                 <div>
-                    <h1 class="banner"><a href="{{ url('/') }}"><span class="d-none d-md-inline">Botanical Society of Otago</span><span class="d-md-none">BSO</span></a></h1>
+                    <span class="d-none d-md-inline banner-text">Botanical Society of Otago</span>
+                    <span class="d-md-none banner-text">BSO</span>
                 </div>
                 <div class="menu-toggle">
                     <button class="btn btn-outline-dark d-md-none" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle docs navigation">
