@@ -174,4 +174,8 @@ export default {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
 }
+
+#editor {
+    font-family: monospace;
+}
 </style>

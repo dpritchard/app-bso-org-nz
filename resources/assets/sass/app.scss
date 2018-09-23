@@ -35,3 +35,7 @@ img {
 .facebook-logo {
     max-height: 20px
 }
+
+table {
+    @extend .table;
+}
