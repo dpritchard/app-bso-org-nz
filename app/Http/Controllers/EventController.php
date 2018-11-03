@@ -41,7 +41,7 @@ class EventController extends Controller
     {
         $events = Event::with('contact')->future()->orderBy('start')->get();
 
-        return view('event.index', ['events' => $events, 'title' => 'Future Events']);
+        return view('event.index', ['events' => $events, 'title' => 'Future Events', 'show_locations' => true]);
     }
 
     /**
@@ -53,7 +53,7 @@ class EventController extends Controller
     {
         $events = Event::with('contact')->historic()->orderBy('start', 'desc')->paginate(15);
 
-        return view('event.index', ['events' => $events, 'title' => 'Past Events']);
+        return view('event.index', ['events' => $events, 'title' => 'Past Events', 'show_locations' => false]);
     }
 
     /**
