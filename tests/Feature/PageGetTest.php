@@ -9,7 +9,7 @@ use App\Page;
 
 class PageGetTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

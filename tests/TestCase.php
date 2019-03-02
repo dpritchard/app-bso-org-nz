@@ -19,7 +19,7 @@ abstract class TestCase extends BaseTestCase
 
     protected $treasurer;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
