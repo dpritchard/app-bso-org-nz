@@ -14,8 +14,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('v-autocomplete-contacts', require('./components/AutocompleteContacts.vue'));
-Vue.component('v-md-editor', require('./components/MarkdownEditor.vue'));
+Vue.component('v-autocomplete-contacts', require('./components/AutocompleteContacts.vue').default);
+Vue.component('v-md-editor', require('./components/MarkdownEditor.vue').default);
 
 const app = new Vue({
     el: '#app'
