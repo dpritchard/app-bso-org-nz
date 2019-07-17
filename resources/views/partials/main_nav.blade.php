@@ -8,6 +8,7 @@
 <a class="nav-link" href="/lichen-guide">Lichen Guide</a>
 {{-- <a class="nav-link" href="/pbfund">The Peter Bannister Student Field Grant</a> --}}
 <a class="nav-link" href="/newsletter"><i>Newsletter</i></a>
+<a class="nav-link" href="/species-lists">Species Lists</a>
 <a class="nav-link" href="/eagle-supplement">Eagle Supplements</a>
 <a class="nav-link" href="/about-joining-the-bso">Join the BSO</a>
 <a class="nav-link" href="/committee">Committee</a>
