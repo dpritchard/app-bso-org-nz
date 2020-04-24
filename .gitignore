@@ -3,17 +3,17 @@
 /public/storage
 /storage/*.key
 /vendor
-/.idea
-/.vscode
-/.vagrant
+.env
+.env.backup
+.phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-.env
-.phpunit.result.cache
-/.editorconfig
-/TODO.md
+# Custom:
 /public/css/app.css
 /public/js/app.js
-public/fonts/vendor/*
+/public/fonts/vendor/*
+.editorconfig
+.styleci.yml
+TODO.md

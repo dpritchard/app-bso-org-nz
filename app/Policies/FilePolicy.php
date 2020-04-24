@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\File;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FilePolicy
@@ -11,17 +11,18 @@ class FilePolicy
     use HandlesAuthorization;
 
     /**
-     * Run before other auths
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\User  $user
+     * @return mixed
      */
-    public function before($user, $ability)
+    public function viewAny(User $user)
     {
-        // if ($user->authoriseRoles(['super-admin'])) {
-        //     return true;
-        // }
+        //
     }
 
     /**
-     * Determine whether the user can view the file.
+     * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
      * @param  \App\File  $file
@@ -44,7 +45,7 @@ class FilePolicy
     }
 
     /**
-     * Determine whether the user can create files.
+     * Determine whether the user can create models.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -55,7 +56,7 @@ class FilePolicy
     }
 
     /**
-     * Determine whether the user can update the file.
+     * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
      * @param  \App\File  $file
@@ -67,7 +68,7 @@ class FilePolicy
     }
 
     /**
-     * Determine whether the user can delete the file.
+     * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
      * @param  \App\File  $file
@@ -79,7 +80,7 @@ class FilePolicy
     }
 
     /**
-     * Determine whether the user can restore the file.
+     * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
      * @param  \App\File  $file
@@ -91,7 +92,7 @@ class FilePolicy
     }
 
     /**
-     * Determine whether the user can permanently delete the file.
+     * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
      * @param  \App\File  $file

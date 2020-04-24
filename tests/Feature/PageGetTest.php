@@ -41,9 +41,9 @@ class PageGetTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSee('Some <em>italics</em> title');
+        $response->assertSee('Some <em>italics</em> title', false);
 
-        $response->assertSee('A body with <strong>bold</strong>');
+        $response->assertSee('A body with <strong>bold</strong>', false);
     }
 
     /** @test */
@@ -129,6 +129,7 @@ class PageGetTest extends TestCase
     /** @test */
     public function a_webmaster_can_see_the_edit_page()
     {
+        // $this->withoutExceptionHandling();
         $this->signIn($this->webmaster);
 
         $this->get($this->edit_link)

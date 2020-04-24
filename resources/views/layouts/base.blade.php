@@ -25,7 +25,7 @@
         <div class="container">
             <div class="d-flex justify-content-between justify-content-md-between align-items-center mt-2">
                 <a href="{{ url('/') }}">
-                    <img class="banner-logo" src="{{ secure_asset('img/logo_web_no_text.png') }}">
+                    <img class="banner-logo" src="{{ asset('img/logo_web_no_text.png') }}">
                 </a>
                 <div>
                     <span class="d-none d-md-inline banner-text">Botanical Society of Otago</span>

@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\Page;
 
-class PagesTableSeeder extends Seeder
+class PageSeeder extends Seeder
 {
     /**
      * Run the database seeds.

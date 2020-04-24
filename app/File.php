@@ -4,6 +4,7 @@ namespace App;
 
 use App\AppModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class File extends AppModel
 {
@@ -31,7 +32,7 @@ class File extends AppModel
      */
     public function getIsImageAttribute()
     {
-        return str_contains($this->mime, 'image/');
+        return Str::contains($this->mime, 'image/');
     }
 
     /**
@@ -70,7 +71,7 @@ class File extends AppModel
     private function sanitise_filename($text)
     {
         $text = transliterator_transliterate('Any-Latin; Latin-ASCII;', $text);
-        $text = strtolower($text);
+        $text = Str::lower($text);
         $text = preg_replace('/[^\\w\\d\\.]+/u', '-', $text);
         $text = preg_replace('/(-\\.)+/u', '.', $text);
         return $text;

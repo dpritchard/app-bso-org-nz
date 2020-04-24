@@ -17,7 +17,7 @@
 <a class="nav-link" href="/disclamer">Disclaimer</a>
 
 <a class="nav-link" href="https://www.facebook.com/pages/Botanical-Society-of-Otago/513831728707617">
-<img alt="FindUsOnFacebook" class="facebook-logo" src="{{ secure_asset('img/find_us_on_facebook.png') }}">
+<img alt="FindUsOnFacebook" class="facebook-logo" src="{{ asset('img/find_us_on_facebook.png') }}">
 </a>
 
 @auth

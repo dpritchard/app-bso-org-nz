@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Page;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PagePolicy
@@ -11,17 +11,18 @@ class PagePolicy
     use HandlesAuthorization;
 
     /**
-     * Run before other auths
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\User  $user
+     * @return mixed
      */
-    public function before($user, $ability)
+    public function viewAny(User $user)
     {
-        // if ($user->authoriseRoles(['super-admin'])) {
-        //     return true;
-        // }
+        //
     }
 
     /**
-     * Determine whether the user can view the page.
+     * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
      * @param  \App\Page  $page
@@ -32,8 +33,8 @@ class PagePolicy
         //
     }
 
-    /**
-     * Determine whether the user can create pages.
+     /**
+     * Determine whether the user can administer models.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -44,7 +45,7 @@ class PagePolicy
     }
 
     /**
-     * Determine whether the user can create pages.
+     * Determine whether the user can create models.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -55,7 +56,7 @@ class PagePolicy
     }
 
     /**
-     * Determine whether the user can update the page.
+     * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
      * @param  \App\Page  $page
@@ -63,11 +64,10 @@ class PagePolicy
      */
     public function update(User $user, Page $page)
     {
-        //
     }
 
     /**
-     * Determine whether the user can delete the page.
+     * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
      * @param  \App\Page  $page
@@ -79,7 +79,7 @@ class PagePolicy
     }
 
     /**
-     * Determine whether the user can restore the page.
+     * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
      * @param  \App\Page  $page
@@ -91,7 +91,7 @@ class PagePolicy
     }
 
     /**
-     * Determine whether the user can permanently delete the page.
+     * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
      * @param  \App\Page  $page

@@ -16,8 +16,8 @@ class EventGetTest extends TestCase
         parent::setUp();
 
         $this->event = create(Event::class);
-        $this->event->contact()->associate(create('App\Contact'));
-        $this->event->category()->associate(Category::find(3));
+        // $this->event->contact()->associate(create('App\Contact'));
+        // $this->event->category()->associate(Category::find(3));
         $this->event->save();
 
         $this->edit_link = '/admin/event/' . $this->event->hashid . '/edit';
