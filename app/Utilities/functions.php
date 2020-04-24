@@ -25,8 +25,11 @@ function markdown($text, $block = true)
 function natural_language_join(array $list, $conjunction = 'and')
 {
     $last = array_pop($list);
-    if ($list) {
+    if (count($list) > 1) {
         return implode(', ', $list) . ' ' . $conjunction . ' ' . $last;
+    } else if(count($list) == 1) {
+        return $list . ' ' . $conjunction . ' ' . $last;
+    } else {
+        return $last;
     }
-    return $last;
 }

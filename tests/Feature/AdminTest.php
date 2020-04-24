@@ -37,6 +37,7 @@ class AdminTest extends TestCase
     /** @test */
     public function a_treasurer_can_see_the_dashboard()
     {
+        // $this->withoutExceptionHandling();
         $this->signIn($this->treasurer);
 
         $this->get('/admin')
