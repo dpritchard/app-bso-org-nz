@@ -27,6 +27,7 @@ window.Vue = require('vue');
 
 Vue.component('v-autocomplete-contacts', require('./components/AutocompleteContacts.vue').default);
 Vue.component('v-md-editor', require('./components/MarkdownEditor.vue').default);
+Vue.component('v-photo-vote', require('./components/PhotoVote.vue').default);
 
 const app = new Vue({
     el: '#app',
