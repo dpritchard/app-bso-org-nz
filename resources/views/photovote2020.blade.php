@@ -33,7 +33,7 @@
 		'https://bso.org.nz/f/lqb2oq/1_12_Celestial_Object.jpg',
 		'https://bso.org.nz/f/4861yq/1_13_The_Mechanics_of_the_Mycosphere.jpg',
 		'https://bso.org.nz/f/jx7n38/1_14_Coprosma_atropurpurea.jpg',
-		'https://bso.org.nz/f/b8mnoq/1_15_Cporophytes.jpg',
+		'https://bso.org.nz/f/b8mnoq/1_15_Sporophytes.jpg',
 		'https://bso.org.nz/f/oxz4nq/1_16_Snow_Bank_Celmisia.jpg',
 		'https://bso.org.nz/f/gqom4x/1_17_Leucopogon_fraseri.jpg',
 		'https://bso.org.nz/f/lq2pk8/1_18_Ourisia_macrophylla_ssp_macrophylla_Taranaki.jpg',
