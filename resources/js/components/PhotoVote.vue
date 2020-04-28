@@ -34,7 +34,7 @@
 <div class="overlay" v-bind:class="{ 'show-overlay': showModal }">
     <a href="#" class="cancel" @click="hide"></a>
     <div class="my-modal text-center">
-        <img :src="this.currItem.url" class="img-fluid">
+        <img :src="this.currItem.url" class="img-fluid img-modal">
         
         <div class="d-flex justify-content-center">
             <p>{{ this.currItem.title }} ({{ this.currView+1 }} of {{ this.currList.length }})</p>
@@ -244,4 +244,10 @@
          width: 100%;
          height: 100%;
      }
+
+     .img-modal {
+        max-height: 500px;
+     }
+
+
 </style>
