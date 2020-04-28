@@ -1,8 +1,18 @@
 @extends('layouts.main')
 
 @section('content')
+<div class="mb-5">
+	<h1>2020 Photo Competition</h1>
+	<p>Welcome to the 2020 BSO Photo Competition. This year we have received 62 photos, from 13 photographers, across the 3 categories.</p>
+
+	<p>Our judges will decide the overall category winners and their decision will be announced on May 13th at the AGM. However we also have a <em>People’s Choice Award</em> which is up to you!</p>
+
+	<h3>Voting Information</h3>
+	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
+	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
+</div>
 <div class="d-flex align-items-center">
-    <v-photo-vote 
+	<v-photo-vote 
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},

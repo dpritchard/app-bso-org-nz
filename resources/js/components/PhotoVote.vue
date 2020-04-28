@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row mb-3">
     <div v-for="cat in categories" class="col-sm text-center">
-        <p>{{ cat.name }}</p>
+        <h3>{{ cat.name }}</h3>
         <p><a href="#" @click="showCategory(cat.code)" class="btn btn-outline-primary" role="button">View Category Entries</a></p>
     </div>
 </div>
