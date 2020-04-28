@@ -4,7 +4,7 @@
 <div class="row mb-3">
     <div v-for="cat in categories" class="col-sm text-center">
         <p>{{ cat.name }}</p>
-        <p><a type="button" @click="showCategory(cat.code)" class="btn btn-outline-primary">View Category Entries</a></p>
+        <p><a href="#" @click="showCategory(cat.code)" class="btn btn-outline-primary" role="button">View Category Entries</a></p>
     </div>
 </div>
 
