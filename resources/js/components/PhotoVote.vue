@@ -2,9 +2,9 @@
 
 <div class="container">
 <div class="row mb-3">
-    <div v-for="cat in categories" class="col-sm">
+    <div v-for="cat in categories" class="col-sm text-center">
         <p>{{ cat.name }}</p>
-        <p><a type="button" @click="showCategory(cat.code)" class="btn btn-outline-primary btn-block">View Category Entries</a></p>
+        <p><a type="button" @click="showCategory(cat.code)" class="btn btn-outline-primary">View Category Entries</a></p>
     </div>
 </div>
 
@@ -21,7 +21,7 @@
         <h2>Your Vote{{ this.votes.length == 1 ? '' : 's' }}</h2>
         <p>You have voted for {{ this.votes.length }} image{{ this.votes.length == 1 ? '' : 's' }}.</p>
         <p><button type="button" class="btn btn-outline-success" @click="showVotes" :disabled="!hasVotes">Review My Votes</button></p>
-        <p>To cast your vote, please send an email to XYZ with the following information, or 
+        <p>To cast your vote, please send an email to Angela Brandt (BrandtA@landcareresearch.co.nz) with the following information, or 
         <a href="#" @click="sendMail">click here</a> to open a draft message in your mail client.</p>
         <p>
         <ul>
@@ -33,8 +33,8 @@
 
 <div class="overlay" v-bind:class="{ 'show-overlay': showModal }">
     <a href="#" class="cancel" @click="hide"></a>
-    <div class="my-modal">
-        <img src="https://cdn.drweil.com/wp-content/uploads/2016/12/diet-nutrition_nutrition_what-is-the-healthiest-apple_2610X1883_000081142497.jpg" class="img-fluid">
+    <div class="my-modal text-center">
+        <img :src="this.currItem.url" class="img-fluid">
         
         <div class="d-flex justify-content-center">
             <p>{{ this.currItem.title }} ({{ this.currView+1 }} of {{ this.currList.length }})</p>
@@ -159,11 +159,11 @@
                 }
              },
              sendMail: function(){
-                var address = ['daniel', 'pritchard.co']
+                var address = ['BrandtA', 'landcareresearch.co.nz']
                 var subject = 'BSO Photo Competition Votes'
                 var s = this.votes.length == 1 ? '' : 's'
                 var bodylines = [
-                    'Hello,', '',
+                    'Hello Angela,', '',
                     'I would like to cast the following vote' + s +' in the BSO photo competition:', '']
                 _.forEach(this.votes, function(value) {
                     bodylines.push('    - ' + value.title + ' (code: ' + value.id + ')')
@@ -183,7 +183,7 @@
                         catString: parts[1],
                         imgString: parts[2],
                         title: parts[3].replace(/_+/gm, " "),
-                        url: parts[0],
+                        url: value,
                         onShortlist: false,
                         hasVote: false
                     }
@@ -222,7 +222,7 @@
 
      .my-modal {
          position: relative;
-         width: 1200px;
+         width: 1000px;
          max-width: 75%;
          /*height: 90%;*/
          background: white;

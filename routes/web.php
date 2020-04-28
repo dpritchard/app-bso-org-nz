@@ -38,6 +38,8 @@ Route::get('/e/{event}', 'EventController@show');
 Route::get('/diary', 'EventController@indexFuture');
 Route::get('/past-events', 'EventController@indexHistoric');
 
+Route::view('/photo-competition/vote', 'photovote2020');
+
 Route::post('/api/render-md', 'ApiController@renderMarkdown');
 
 Auth::routes(['register' => false]); // For now, we don't want this.
