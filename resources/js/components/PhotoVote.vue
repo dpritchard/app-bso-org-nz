@@ -36,8 +36,11 @@
     <div class="my-modal text-center">
         <img :src="this.currItem.url" class="img-fluid img-modal">
         
-        <div class="d-flex justify-content-center">
-            <p>{{ this.currItem.title }} ({{ this.currView+1 }} of {{ this.currList.length }})</p>
+        <div class="text-center">
+            <p>
+                {{ this.currView+1 }} of {{ this.currList.length }}: 
+                {{ this.currItem.caption ? this.currItem.caption : this.currItem.title }}.
+            </p>
         </div>
         
         <div class="d-flex justify-content-between">
@@ -176,14 +179,15 @@
         },
         mounted: function () {
             this.imgDat =  _.map(this.images, (value, index, collection) => {
-                    var parts = value.match(/(\d+)_(\d+)_(.+)\./m)
+                    var parts = value.f.match(/(\d+)_(\d+)_(.+)\./m)
                     return {
                         id: parts[1] + '-' + parts[2],
                         category: _.find(this.categories, ['code', _.toInteger(parts[1])]),
                         catString: parts[1],
                         imgString: parts[2],
-                        title: parts[3].replace(/_+/gm, " "),
-                        url: value,
+                        title: parts[3].replace(/_+/gm, " ").replace(/[\s.]+$/gm, ""),
+                        caption: value.c.replace(/[\s.]+$/gm, ""),
+                        url: value.f,
                         onShortlist: false,
                         hasVote: false
                     }
