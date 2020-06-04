@@ -13,8 +13,8 @@ try {
     require('bootstrap');
 } catch (e) {}
 
-// window.moment = require('moment');
-// window.tempusdominus = require('tempusdominus-bootstrap-4');
+window.moment = require('moment');
+window.tempusdominus = require('tempusdominus-bootstrap-4');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
