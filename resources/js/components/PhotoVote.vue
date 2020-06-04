@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="row mb-3" v-if="hasVotes">
+<div class="row mb-3" v-if="hasVotes & allowVotes">
     <div class="col">
         <h2>Your Vote{{ this.votes.length == 1 ? '' : 's' }}</h2>
         <p>You have voted for {{ this.votes.length }} image{{ this.votes.length == 1 ? '' : 's' }}.</p>
@@ -50,7 +50,8 @@
                         v-bind:class="[this.currItem.onShortlist ? 'btn-secondary' : 'btn-outline-secondary']">
                         {{ this.currItem.onShortlist ? 'Remove from Shortlist' : 'Add to Shortlist' }}
                 </button>
-                <button type="button" class="btn" @click="toggleVote" 
+                <button type="button" class="btn" @click="toggleVote"
+                        v-if="allowVotes" 
                         :disabled="!canVote && !this.currItem.hasVote" 
                         v-bind:class="[this.currItem.hasVote ? 'btn-success' : 'btn-outline-success']">
                         {{ this.currItem.hasVote ? 'Remove Vote' : 'Add Vote' }}
@@ -58,7 +59,7 @@
             </div>
             <button type="button" class="btn btn-outline-secondary" @click="next" :disabled="atEnd">>></button>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" v-if="allowVotes">
             <p class="font-weight-lighter text-muted">{{ this.remainingVotes }} vote{{ this.remainingVotes == 1 ? '' : 's'}} remaining</p>
         </div>
     </div>
@@ -72,7 +73,8 @@
 	export default {
         props: {
             categories: Array,
-            images: Array
+            images: Array,
+            allowVotes: Boolean
         },
         data: function () {
             return {

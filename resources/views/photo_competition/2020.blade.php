@@ -3,6 +3,8 @@
 @section('content')
 <div class="mb-5">
 	<h1>2020 Photo Competition</h1>
+	<!-- Notes for 2021. Need: Short Title. Author. Caption (optional). Set data in php and pass to JS. Need author to be supressed until voting finished.-->
+	<!-- 
 	<p>Welcome to the 2020 BSO Photo Competition. This year we have received 62 photos, from 13 photographers, across the 3 categories.</p>
 
 	<p>Our judges will decide the overall category winners and their decision will be announced on May 13th at the AGM. However we also have a <em>People’s Choice Award</em> which is up to you!</p>
@@ -10,9 +12,39 @@
 	<h3>Voting Information</h3>
 	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
+	-->
+	<p>Welcome to the 2020 BSO Photo Competition. This year, we received 62 photos, from 13 photographers, across the 3 categories.</p>
+	
+	<p>Our judges announced the overall category winners on May 13th 2020 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the first time ever the members agreed with the judges!</p>
+
+	<h3>Category Winner: Plant Portrait and <em>People’s Choice Award</em></h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/jx7p3x/1_38_Bright_flowers_of_an_otherwise_well_camouflaged_Haastia_sinclairii_var_sinclairii_at_Lathrop_Saddle_Hokitika.jpg" class="figure-img img-fluid rounded" alt="Hokitika Haastia">
+		<figcaption class="figure-caption"><em>Hokitika Haastia</em> by Ian Geary. Bright flowers of an otherwise well camouflaged <em>Haastia sinclairii</em> var. sinclairii at Lathrop Saddle, Hokitika.</figcaption>
+	</figure>
+	
+
+	<h3>Category Winner: Plants in the Landscape</h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/bqe6vx/2_6_Alpine_Tarns.jpg" class="figure-img img-fluid rounded" alt="Alpine Tarns">
+		<figcaption class="figure-caption"><em>Alpine Tarns</em> by John Barkla.</figcaption>
+	</figure>
+	
+
+	<h3>Category Winner: Plants and People</h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/bxv5o8/3_1_Takitimu_camp.jpg" class="figure-img img-fluid rounded" alt="Takitimu camp">
+		<figcaption class="figure-caption"><em>Takitimu camp</em> by John Barkla.</figcaption>
+	</figure>
+	
+
+	<h3>Viewing Information</h3>
+	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
+
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote 
+	v-bind:allow-votes="false" 
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
