@@ -39,6 +39,7 @@ Route::get('/diary', 'EventController@indexFuture');
 Route::get('/past-events', 'EventController@indexHistoric');
 
 Route::view('/photo-competition/2020', 'photo_competition.2020');
+Route::view('/photo-competition/2021', 'photo_competition.2021');
 
 Route::post('/api/render-md', 'ApiController@renderMarkdown');
 
