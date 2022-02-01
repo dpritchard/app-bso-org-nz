@@ -5,7 +5,7 @@
 <h1>{{ $title }}</h1>
 
 @if ($show_locations)
-<p>Talks are held at the Zoology Benham Building, 346 Great King Street, behind the Zoology car park by the Captain Cook Hotel. Use the main entrance of the Benham Building to get in and go to the Benham Seminar Room, Rm. 215, 2nd floor. Please be prompt as we have to hold the door open.</p>
+<p>Talks are held at the Otago Pioneer Women’s Memorial Assn., Inc., Building, 362 Moray Place, Dunedin Central. Please be prompt as we have to hold the door open.</p>
 <p>Trips leave from the Department of Botany car park.</p>
 @endif
 
