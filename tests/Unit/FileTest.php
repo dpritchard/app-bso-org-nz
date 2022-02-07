@@ -18,7 +18,7 @@ class FileTest extends TestCase
     {
         Storage::fake();
         Storage::disk()->put('test.file', 'NOTHING');
-        $file = create(File::class, ['storage_path' => 'test.file']);
+        $file = File::factory()->create(['storage_path' => 'test.file']);
 
         $this->assertEquals($file->mime, 'text/plain');
     }

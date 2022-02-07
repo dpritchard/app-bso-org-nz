@@ -13,7 +13,7 @@ class FileGetTest extends TestCase
     /** @test */
     public function a_guest_cannot_access_a_private_file()
     {
-        $file = create(File::class, ['visibility' => 'private']);
+        $file = File::factory()->create(['visibility' => 'private']);
 
         $this->get($file->path())
              ->assertRedirect(route('login'));
@@ -30,7 +30,7 @@ class FileGetTest extends TestCase
 
         Storage::fake();
         Storage::disk()->put('test.file', 'NOTHING');
-        $file = create(File::class, ['visibility' => 'private', 'storage_path' => 'test.file']);
+        $file = File::factory()->create(['visibility' => 'private', 'storage_path' => 'test.file']);
 
         $this->get($file->path())
              ->assertStatus(200);

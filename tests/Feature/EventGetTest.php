@@ -15,7 +15,7 @@ class EventGetTest extends TestCase
     {
         parent::setUp();
 
-        $this->event = create(Event::class);
+        $this->event = Event::factory()->create();
         // $this->event->contact()->associate(create('App\Contact'));
         // $this->event->category()->associate(Category::find(3));
         $this->event->save();

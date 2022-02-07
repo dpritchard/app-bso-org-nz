@@ -1,13 +1,21 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\File;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(File::class, function (Faker $faker) {
-    return [
-        'name' => $faker->word() . '.' . $faker->fileExtension(),
-        'storage_path' => 'files/' . $faker->word() . '.' . $faker->fileExtension(),
-    ];
-});
+class FileFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->word() . '.' . $this->faker->fileExtension(),
+            'storage_path' => 'files/' . $this->faker->word() . '.' . $this->faker->fileExtension(),
+        ];
+    }
+}

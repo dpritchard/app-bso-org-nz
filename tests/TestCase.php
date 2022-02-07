@@ -23,19 +23,19 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->super = create(User::class);
+        $this->super = User::factory()->create();
         $this->super->roles()->attach(Role::create(['name' => 'super-admin', 'description' => 'sa']));
 
-        $this->webmaster = create(User::class);
+        $this->webmaster = User::factory()->create();
         $this->webmaster->roles()->attach(Role::create(['name' => 'webmaster', 'description' => 'wm']));
 
-        $this->treasurer = create(User::class);
+        $this->treasurer = User::factory()->create();
         $this->treasurer->roles()->attach(Role::create(['name' => 'treasurer', 'description' => 'tr']));
     }
 
     protected function signIn($user = null)
     {
-        $user = $user ?: create('App\User');
+        $user = $user ?: User::factory()->create();
         $this->actingAs($user);
         return $this;
     }

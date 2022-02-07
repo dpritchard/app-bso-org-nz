@@ -1,8 +1,9 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ContactSeeder extends Seeder
+class FileSeeder extends Seeder
 {
     /**
      * Run the database seeds.

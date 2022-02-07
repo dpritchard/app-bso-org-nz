@@ -3,11 +3,14 @@
 namespace App;
 
 use App\AppModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Contact;
 use App\Category;
 
 class Event extends AppModel
 {
+    use HasFactory;
+    
     protected $dates = ['start', 'finish'];
 
     /**

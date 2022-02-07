@@ -3,11 +3,14 @@
 namespace App;
 
 use App\AppModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class File extends AppModel
 {
+    use HasFactory;
+    
     /**
      * Return a url path for this model
      * @return string A path

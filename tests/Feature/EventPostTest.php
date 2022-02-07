@@ -74,13 +74,13 @@ class EventPostTest extends TestCase
 
     protected function mockForm()
     {
-        $event = make(Event::class);
+        $event = Event::factory()->make();
         $event->start->format('Y-m-d H:i');
         $submission = $event->toArray();
         $submission['start'] = $event->start->format('Y-m-d H:i');
         $submission['finish'] = optional($event->finish)->format('Y-m-d H:i');
-        $submission['contact_name'] = create('App\Contact')->name;
-        $submission['category'] = create('App\Category')->id;
+        $submission['contact_name'] = Contact::factory()->create()->name;
+        $submission['category'] = Category::factory()->create()->id;
         return $submission;
     }
 }

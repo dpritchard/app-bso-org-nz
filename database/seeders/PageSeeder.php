@@ -1,4 +1,5 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
@@ -14,7 +15,6 @@ class PageSeeder extends Seeder
     public function run()
     {
         Page::create(['uri' => '', 'title' => 'Home Page', 'body' => 'This is the home page']);
-        // factory(Page::class, 3)->create();
         Page::create(['uri' => 'trip-guidelines', 'title' => 'Trip Guidelines', 'body' => 'Placeholder text']);
         Page::create(['uri' => 'bso-calendar', 'title' => '2018 Calendar sold out', 'body' => 'Placeholder text']);
         Page::create(['uri' => 'photo-competition', 'title' => '2018 Photo Competition', 'body' => 'Placeholder text']);

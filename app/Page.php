@@ -3,9 +3,12 @@
 namespace App;
 
 use App\AppModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Page extends AppModel
 {
+    use HasFactory;
+    
     protected $fillable = ['uri', 'title', 'body'];
 
     public function path()

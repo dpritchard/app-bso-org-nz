@@ -75,7 +75,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page = create(Page::class, ['uri' => '']);
+        $page = Page::factory()->make(['uri' => '']);
         $submission = $this->mockForm();
         $submission['uri'] = '';
 
@@ -91,7 +91,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page = create(Page::class, ['uri' => 'test']);
+        $page = Page::factory()->make(['uri' => 'test']);
         $submission = $this->mockForm();
         $submission['uri'] = 'test';
 
@@ -107,7 +107,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = create(Page::class, ['uri' => '']);
+        $page_1 = Page::factory()->make(['uri' => '']);
         $submission = $page_1->toArray();
         $submission['title'] = 'A new title';
 
@@ -121,7 +121,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = create(Page::class, ['uri' => 'test']);
+        $page_1 = Page::factory()->make(['uri' => 'test']);
         $submission = $page_1->toArray();
         $submission['title'] = 'A new title';
 
@@ -135,14 +135,16 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = create(Page::class, ['uri' => '']);
-        $page_2 = create(Page::class, ['uri' => 'test']);
+        $page_1 = Page::factory()->make(['uri' => '']);
+        $page_2 = Page::factory()->make(['uri' => 'test']);
 
         $submission = $page_2->toArray();
         $submission['uri'] = '';
 
-        $this->put('/admin/page/' . $page_2->hashid, $submission)
-           ->assertSessionHasErrors();
+        $this->signIn($this->webmaster)
+            ->put('/admin/page/' . $page_2->hashid, $submission)
+            ->ddSession();   
+           // ->assertSessionHasErrors();
 
         $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
            ->assertStatus(422);
@@ -153,8 +155,8 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = create(Page::class, ['uri' => 'test']);
-        $page_2 = create(Page::class, ['uri' => 'test2']);
+        $page_1 = Page::factory()->create(['uri' => 'test']);
+        $page_2 = Page::factory()->create(['uri' => 'test2']);
 
         $submission = $page_2->toArray();
         $submission['uri'] = 'test';
@@ -168,7 +170,7 @@ class PagePostTest extends TestCase
 
     protected function mockForm()
     {
-        $page = make(Page::class);
+        $page = Page::factory()->make();
         $submission = $page->toArray();
         return $submission;
     }

@@ -13,7 +13,7 @@ class PageGetTest extends TestCase
     {
         parent::setUp();
 
-        $this->page = create(Page::class);
+        $this->page = Page::factory()->create();
 
         $this->edit_link = '/admin/page/' . $this->page->hashid . '/edit';
         $this->create_link = '/admin/page/create';
@@ -23,7 +23,7 @@ class PageGetTest extends TestCase
     /** @test */
     public function it_interprets_an_empty_uri_as_the_index()
     {
-        $page = create(Page::class, ['uri' => '']);
+        $page = Page::factory()->create(['uri' => '']);
 
         $this->get('/')
              ->assertStatus(200);
@@ -32,7 +32,7 @@ class PageGetTest extends TestCase
     /** @test */
     public function it_can_load_and_parse_markdown_to_a_page()
     {
-        $page = create(Page::class, [
+        $page = Page::factory()->create([
             'title' => 'Some *italics* title',
             'body' => 'A body with **bold**'
         ]);
