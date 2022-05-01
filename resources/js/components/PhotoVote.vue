@@ -50,7 +50,7 @@
                         v-bind:class="[this.currItem.onShortlist ? 'btn-secondary' : 'btn-outline-secondary']">
                         {{ this.currItem.onShortlist ? 'Remove from Shortlist' : 'Add to Shortlist' }}
                 </button>
-                <button type="button" class="btn" @click="toggleVote"
+                <button type="button" class="btn ml-1" @click="toggleVote"
                         v-if="allowVotes" 
                         :disabled="!canVote && !this.currItem.hasVote" 
                         v-bind:class="[this.currItem.hasVote ? 'btn-success' : 'btn-outline-success']">
