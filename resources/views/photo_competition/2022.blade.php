@@ -3,7 +3,7 @@
 @section('content')
 <div class="mb-5">
 	<h1>2022 Photo Competition</h1>
-	<!-- Notes for 2023... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Need author to be supressed until voting finished.-->
+	<!-- Notes for 2023... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
 
 	<p>Welcome to the 2022 BSO Photo Competition. This year we have received 44 photos, from 10 photographers, across the 3 categories.</p>
 
@@ -58,7 +58,7 @@
 {f: 'https://bso.org.nz/f/n8w4dx/1_5_cushion_-shyness.jpg', c: 'Cushion shyness: Cushions of Grimmia sharing a stone wall.'},
 {f: 'https://bso.org.nz/f/bqer6x/1_6_stop_for_a_sip.jpg', c: 'Stop for a Sip!: This ‘pixie cup’ Alpine Cladonia with its farinose soredia and red-rimmed Thallus grows along the bush track leading from the Cobb Valley to Peel Ridge'},
 {f: 'https://bso.org.nz/f/eqgjeq/1_7_clingingtothecliff.jpeg', c: 'Clinging to the cliff: Olearia oporina on the edge of a cliff overlooking Puysegur Point, south western-most point of the South Island, 46 degrees South'},
-{f: 'https://bso.org.nz/f/exy5e8/1_8_bumblingpollinator.jpeg', c: 'Bumbling pollinator: Olearea oporina flower attracting bumble bee pollinator, Preservation Inlet, Fiordland National Park'},
+{f: 'https://bso.org.nz/f/exy5e8/1_8_bumblingpollinator.jpeg', c: 'Bumbling pollinator: Olearia oporina flower attracting bumble bee pollinator, Preservation Inlet, Fiordland National Park'},
 {f: 'https://bso.org.nz/f/rxrkjq/1_9_oohyuckaslimy.jpeg', c: '“Ooh yuck - a slimy!”: Earthstar fungi (Geastrum vellutinum) surveying a vibrant blue slime mold. Tuapeka West.'},
 {f: 'https://bso.org.nz/f/bqerrx/1_10_kidmenot.jpeg', c: 'Kid me not: Kidney fern/Raurenga (Hymenophyllum nephrophyllum) Chalky Inlet, Fiordland National Park.'},
 {f: 'https://bso.org.nz/f/eqgjpq/1_11_shitake_yum.jpg', c: 'Shitake – yum!: New Zealand shitake (Lentinula novae-zelandiae), on a rotting log under kanuka/beech forest. Tuapeka West, Otago'},
@@ -67,7 +67,7 @@
 {f: 'https://bso.org.nz/f/vxk45q/1_14_manuka_flower.jpg', c: 'Manuka : Leptospermum scoparium'},
 {f: 'https://bso.org.nz/f/mxjv2x/1_15_lichen.jpg', c: 'Lichen'},
 {f: 'https://bso.org.nz/f/d8dyp8/1_16_hymenophyllum_frankliniae.jpg', c: 'Hymenophyllum franklinae: This filmy fern is abundant in the forests of Stewart Island'},
-{f: 'https://bso.org.nz/f/e899r8/1_17_celmisia_clavata.jpg', c: 'Celmisia clavata: Celmisia clavata, is a Stewart Island endemic and is found on the bleak uplands of these isolated herb moors'},
+{f: 'https://bso.org.nz/f/e899r8/1_17_celmisia_clavata.jpg', c: 'Celmisia clavata: Celmisia clavata is a Stewart Island endemic and is found on the bleak uplands of these isolated herb moors'},
 {f: 'https://bso.org.nz/f/bxvvwx/1_18_craspedia_lanata.jpg', c: 'Craspedia lanata: Mt Bitterness, St Mary Range'},
 {f: 'https://bso.org.nz/f/d84yl8/1_19_earina_autumnalis.jpg', c: 'Earina autumnalis: Hapuka Estuary Reserve, South Westland'},
 {f: 'https://bso.org.nz/f/p8llz8/1_20_harakeke_flowers.jpg', c: 'Harakeke flowers: Bull Creek Reserve'},
@@ -84,7 +84,7 @@
 {f: 'https://bso.org.nz/f/lq25gq/2_11_radiant_leaves.jpg', c: 'Radiant leaves: Cabbage trees/ tī kōuka (Cordyline australis) catch the evening light streaming over the Blue Mountains. Tuapeka West, Otago.'},
 {f: 'https://bso.org.nz/f/4q1lz8/2_12_competitive_colonisation.jpg', c: 'Competitive colonisation: Lichens jostling for space on a concrete wall. Diverse genera include Xanthoria, Xanthoparmelia, Physcia, Phaeophyscia, Parmotrema, Usnea, Polyozosia and Caloplaca.'},
 {f: 'https://bso.org.nz/f/n8wylx/2_13_uv_id.jpg', c: 'UV id.: Some lichens can convert UV light into visible light. Here the bluish glow of Lepra novaezelandiae distinguishes it from orange Pertusaria sorodes and unknown species show up.'},
-{f: 'https://bso.org.nz/f/bqelrx/2_14_southern_rata.jpg', c: 'Rata: Metrsideros umbellale'},
+{f: 'https://bso.org.nz/f/bqelrx/2_14_southern_rata.jpg', c: 'Rata: Metrosideros umbellata'},
 {f: 'https://bso.org.nz/f/eqgppq/2_15_rakeahua_river.jpg', c: 'Reflections, Rakeahua River: The riparian forest fringing the Rakeahua River is reflected in the water.'},
 {f: 'https://bso.org.nz/f/exykz8/2_16_a_view_worth_the_blisters_2022.jpg', c: 'A View Worth the Blisters: A beautiful sunset after a 21km walk and a 900m climb in Fiordland, on the Hump Ridge Track'},
 {f: 'https://bso.org.nz/f/rxrl6x/2_17_bush_stream.jpg', c: 'Bush stream: Bull Creek Reserve'},
