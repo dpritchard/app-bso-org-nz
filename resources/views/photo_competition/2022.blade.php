@@ -16,7 +16,7 @@
 	
 	<p>Welcome to the 2022 BSO Photo Competition. This year, we received 44 photos, from 10 photographers, across the 3 categories.</p>
 
-	<p>Our judges announced the overall category winners on May 11 2022 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the first time ever, we had a four-way tie for the <em>People’s Choice Award</em>!</p>
+	<p>Our judges announced the overall category winners on May 11 2022 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the first time ever, we had a four-way tie for the <em>People’s Choice Award</em></p>
 
 	<h3>Category Winner: Plant Portrait and <em>People’s Choice Award</em> (1 of 4)</h3>
 	<figure class="figure">
@@ -54,11 +54,11 @@
 	
 	<h3>Viewing Information</h3>
 	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
-s
+
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
-	v-bind:allow-votes="true"
+	v-bind:allow-votes="false"
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
