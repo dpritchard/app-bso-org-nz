@@ -4,7 +4,7 @@
 <a class="nav-link" href="/trip-guidelines">Trip Guidelines</a>
 <a class="nav-link" href="/bso-calendar">Calendar</a>
 <a class="nav-link" href="/photo-competition">Photo Competition</a>
-{{-- <a class="nav-link" href="/eagle-drawing-competiton">Drawing Competiton</a> --}}
+<a class="nav-link" href="/eagle-drawing-competiton">Drawing Competiton</a>
 <a class="nav-link" href="/lichen-guide">Lichen Guide</a>
 {{-- <a class="nav-link" href="/pbfund">The Peter Bannister Student Field Grant</a> --}}
 <a class="nav-link" href="/newsletter"><i>Newsletter</i></a>

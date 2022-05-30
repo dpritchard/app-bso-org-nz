@@ -4,7 +4,7 @@
 <div class="mb-5">
 	<h1>2022 Photo Competition</h1>
 	<!-- Notes for 2023... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
-
+<!-- 
 	<p>Welcome to the 2022 BSO Photo Competition. This year we have received 44 photos, from 10 photographers, across the 3 categories.</p>
 
 	<p>Our judges will decide the overall category winners and their decision will be announced on May 11 2022 at the AGM. However, we also have a <em>People’s Choice Award</em> which is up to you!</p>
@@ -12,35 +12,49 @@
 	<h3>Voting Information</h3>
 	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
-
-<!-- 	
+ -->
+	
 	<p>Welcome to the 2022 BSO Photo Competition. This year, we received 44 photos, from 10 photographers, across the 3 categories.</p>
 
-	<p>Our judges announced the overall category winners on May 11 2022 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the second time ever the members agreed with the judges!</p>
+	<p>Our judges announced the overall category winners on May 11 2022 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the first time ever, we had a four-way tie for the <em>People’s Choice Award</em>!</p>
 
-	<h3>Category Winner: Plant Portrait</h3>
+	<h3>Category Winner: Plant Portrait and <em>People’s Choice Award</em> (1 of 4)</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/eqgjeq/1_7_clingingtothecliff.jpeg" class="figure-img img-fluid rounded" alt="Clinging to the cliff by John Knight">
+		<figcaption class="figure-caption">Clinging to the cliff by John Knight. Olearia oporina on the edge of a cliff overlooking Puysegur Point, south western-most point of the South Island, 46 degrees South.</figcaption>
 	</figure>
 
-	<h3>Category Winner: Plants in the Landscape and <em>People’s Choice Award</em></h3>
+	<h3>Category Winner: Plants in the Landscape</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/486blx/2_6_stop_take_care.jpg" class="figure-img img-fluid rounded" alt="Stop! Take Care! by Alyth Grant">
+		<figcaption class="figure-caption">Stop! Take Care! by Alyth Grant. The bright Trentepohlia cliff face by Split Rock seems to both warn and draw trampers on into this tricky space.</figcaption>
 	</figure>
 
 	<h3>Category Winner: Wetland Plants</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/d8d4p8/3_3_reflections.jpeg" class="figure-img img-fluid rounded" alt="Reflections by Gretchen Brownstein">
+		<figcaption class="figure-caption">Reflections by Gretchen Brownstein. Tataki wetlands.</figcaption>
 	</figure>
 
-
+	<h3><em>People’s Choice Award</em> 2 of 4</h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/rxrl6x/2_17_bush_stream.jpg" class="figure-img img-fluid rounded" alt="Bush stream by Warren Jowett">
+		<figcaption class="figure-caption">Bush stream by Warren Jowett. Bull Creek Reserve</figcaption>
+	</figure>
+	<h3><em>People’s Choice Award</em> 3 of 4</h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/eqgppq/2_15_rakeahua_river.jpg" class="figure-img img-fluid rounded" alt="Reflections, Rakeahua River by David Lyttle">
+		<figcaption class="figure-caption">Reflections, Rakeahua River by David Lyttle. The riparian forest fringing the Rakeahua River is reflected in the water.</figcaption>
+	</figure>
+	<h3><em>People’s Choice Award</em> 4 of 4</h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/bqerrx/1_10_kidmenot.jpeg" class="figure-img img-fluid rounded" alt="Kid me not by John Knight">
+		<figcaption class="figure-caption">Kid me not by John Knight. Kidney fern/Raurenga (<em>Hymenophyllum nephrophyllum</em>) Chalky Inlet, Fiordland National Park.</figcaption>
+	</figure>
+	
 	<h3>Viewing Information</h3>
 	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
- -->
-
+s
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
