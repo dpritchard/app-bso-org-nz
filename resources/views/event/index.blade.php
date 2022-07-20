@@ -5,7 +5,7 @@
 <h1>{{ $title }}</h1>
 
 @if ($show_locations)
-<p>Talks are held at Manaaki Whenua Landcare Research in the Main Seminar room, 764 Cumberland Street, Dunedin. Please be prompt as we have to hold the door open.</p>
+<p>Talks are held at Manaaki Whenua Landcare Research in the Main Seminar room, 764 Cumberland Street, Dunedin. Please be prompt as we have to hold the door open. Zoom links for the talks are sent to members, <a href="https://bso.org.nz/about-joining-the-bso">join the BSO here</a>.</p>
 <p>Trips leave from the Department of Botany car park.</p>
 @endif
 
