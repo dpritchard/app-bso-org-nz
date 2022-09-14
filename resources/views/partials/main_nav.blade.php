@@ -3,6 +3,7 @@
 <a class="nav-link" href="/past-events">Past Events</a>
 <a class="nav-link" href="/trip-guidelines">Trip Guidelines</a>
 <a class="nav-link" href="/bso-calendar">Calendar</a>
+<a class="nav-link" href="/baylis">Baylis Lecture</a>
 <a class="nav-link" href="/photo-competition">Photo Competition</a>
 <a class="nav-link" href="/eagle-drawing-competiton">Drawing Competiton</a>
 <a class="nav-link" href="/lichen-guide">Lichen Guide</a>
