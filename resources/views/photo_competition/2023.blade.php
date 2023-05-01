@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mb-5">
-	<h1>2022 Photo Competition</h1>
+	<h1>2023 Photo Competition</h1>
 	<!-- Notes for 2024... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
 
 	<p>Welcome to the 2023 BSO Photo Competition. This year we have received 56 photos, from 13 photographers, across the 3 categories.</p>
