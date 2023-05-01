@@ -21,7 +21,7 @@
         <h2>Your Vote{{ this.votes.length == 1 ? '' : 's' }}</h2>
         <p>You have voted for {{ this.votes.length }} image{{ this.votes.length == 1 ? '' : 's' }}.</p>
         <p><button type="button" class="btn btn-outline-success" @click="showVotes" :disabled="!hasVotes">Review My Votes</button></p>
-        <p>To cast your vote, please send an email to Angela Brandt (BrandtA@landcareresearch.co.nz) with the following information, or 
+        <p>To cast your vote, please send an email to Gretchen Brownstein (BrownsteinG@landcareresearch.co.nz) with the following information, or 
         <a href="#" @click="sendMail">click here</a> to open a draft message in your mail client.</p>
         <p>
         <ul>
@@ -164,11 +164,12 @@
                 }
              },
              sendMail: function(){
-                var address = ['BrandtA', 'landcareresearch.co.nz']
+                var address = ['BrownsteinG', 'landcareresearch.co.nz']
+                // var address = ['BrandtA', 'landcareresearch.co.nz']
                 var subject = 'BSO Photo Competition Votes'
                 var s = this.votes.length == 1 ? '' : 's'
                 var bodylines = [
-                    'Hello Angela,', '',
+                    'Kia ora Gretchen,', '',
                     'I would like to cast the following vote' + s +' in the BSO photo competition:', '']
                 _.forEach(this.votes, function(value) {
                     bodylines.push('    - ' + value.title + ' (code: ' + value.id + ')')

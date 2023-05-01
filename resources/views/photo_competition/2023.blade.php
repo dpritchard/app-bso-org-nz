@@ -50,7 +50,7 @@
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
-	v-bind:allow-votes="false"
+	v-bind:allow-votes="true"
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
