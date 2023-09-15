@@ -4,7 +4,7 @@
 <div class="mb-5">
 	<h1>2023 Photo Competition</h1>
 	<!-- Notes for 2024... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
-
+<!-- 
 	<p>Welcome to the 2023 BSO Photo Competition. This year we have received 56 photos, from 13 photographers, across the 3 categories.</p>
 
 	<p>Our judges will decide the overall category winners and their decision will be announced on May 10 2023 at the AGM. However, we also have a <em>People’s Choice Award</em> which is up to you!</p>
@@ -12,45 +12,56 @@
 	<h3>Voting Information</h3>
 	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
-
+ -->
 	
-<!-- 	
+	
 	<p>Welcome to the 2023 BSO Photo Competition. This year, we received 56 photos, from 13 photographers, across the 3 categories.</p>
 
-	<p>Our judges announced the overall category winners on May 10 2023 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. For the first time ever, we had a four-way tie for the <em>People’s Choice Award</em></p>
+	<p>Our judges announced the overall category winners on May 10 2023 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. This year we had a three-way tie for the <em>People’s Choice Award</em></p>
 
 	<h3>Category Winner: Plant Portrait</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="XX">
-		<figcaption class="figure-caption">XX. YYY.</figcaption>
+		<img src="https://bso.org.nz/f/d8drpx/1_5_species_needs_renaming.jpg" class="figure-img img-fluid rounded" alt="Species needs renaming by John Knight">
+		<figcaption class="figure-caption">Species needs renaming by John Knight. <em>Clematis foetida</em> Raoul, should be renamed <em>Clematis euodia</em> (sweet smelling Gk) or hedyosmus (L) - Tuapeka West</figcaption>
 	</figure>
 
 	<h3>Category Winner: Plants in the Landscape</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="XX">
-		<figcaption class="figure-caption">XX. YYY.</figcaption>
+		<img src="https://bso.org.nz/f/d84o1x/2_1_leucogenes_grandiceps.jpg" class="figure-img img-fluid rounded" alt="Grandly standing above forest giants by Rach Baxter">
+		<figcaption class="figure-caption">Grandly standing above forest giants by Rach Baxter. <em>Leucogenes grandiceps</em>, Paparoa track</figcaption>
 	</figure>
 
-	<h3>Category Winner: ABCD</h3>
+	<h3>Category Winner: Mosses, Fungi, Lichens, and Liverworts</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="XX">
-		<figcaption class="figure-caption">XX. YYY.</figcaption>
+		<img src="https://bso.org.nz/f/mxj2g8/3_18_agrocybe_parasitica.jpg" class="figure-img img-fluid rounded" alt="Agrocybe parasitica by David Lyttle">
+		<figcaption class="figure-caption"><em>Agrocybe parasitica</em> by David Lyttle. Fruiting bodies of the fungus growing on trunk of living elderberry</figcaption>
 	</figure>
 
-	<h3><em>People’s Choice Award</em></h3>
+	<h3><em>People’s Choice Award (1/3)</em></h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="XX">
-		<figcaption class="figure-caption">XX. YYY.</figcaption>
+		<img src="https://bso.org.nz/f/lq2yg8/1_20_facesinthefronds.jpg" class="figure-img img-fluid rounded" alt="Faces in the fronds by Stella Fish">
+		<figcaption class="figure-caption">Faces in the fronds by Stella Fish. Masses of Durvillaea on the coastline of The Snares heave in the swell, occasionally revealing humanoid faces.</figcaption>
 	</figure>
-	
+
+	<h3><em>People’s Choice Award (2/3)</em></h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/n8w268/3_11_ganodermaursa.jpg" class="figure-img img-fluid rounded" alt="Ganoderma ursa by Stella Fish">
+		<figcaption class="figure-caption"><em>Ganoderma ursa</em> by Stella Fish. <em>Ganoderma ursa</em> surveys a Fiordland forest.</figcaption>
+	</figure>
+
+	<h3><em>People’s Choice Award (3/3)</em></h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/rxrw1q/3_16_crown_jewels.jpg" class="figure-img img-fluid rounded" alt="Crown jewels by Allison Knight">
+		<figcaption class="figure-caption">Crown jewels by Allison Knight. Red apothecia adorn the grainy splash cups of the Red-fruited pixie cup lichen, <em>Cladonia pleurota</em>.  Raindrops splashing up help disperse the spores. Great Barrier Island.</figcaption>
+	</figure>	
 	
 	<h3>Viewing Information</h3>
 	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
- -->
+
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
-	v-bind:allow-votes="true"
+	v-bind:allow-votes="false"
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
