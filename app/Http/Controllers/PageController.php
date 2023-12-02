@@ -16,7 +16,6 @@ class PageController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
-        ;
     }
 
     /**
@@ -58,7 +57,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $this->authorize('create', Page::class);
-
+        
         $request->merge(['uri' => $request->uri ?? '']); // Incase this is the index (which would be NULL at this point)
 
         Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {
@@ -136,9 +135,7 @@ class PageController extends Controller
     public function update(Request $request, Page $page)
     {
         $this->authorize('create', Page::class);
-
         $request->merge(['uri' => $request->uri ?? '']);  // Incase this is the index (which would be NULL at this point)
-
         Validator::extendImplicit('unique', function ($attribute, $value, $parameters, $validator) {
         });
 

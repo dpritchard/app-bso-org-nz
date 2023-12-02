@@ -134,17 +134,16 @@ class PagePostTest extends TestCase
     public function it_does_not_allow_updating_to_exisiting_index_uri()
     {
         $this->signIn($this->webmaster);
+        // $this->withoutExceptionHandling();
 
-        $page_1 = Page::factory()->make(['uri' => '']);
-        $page_2 = Page::factory()->make(['uri' => 'test']);
+        $page_1 = Page::factory()->create(['uri' => '', 'title' => 'An index']);
+        $page_2 = Page::factory()->create(['uri' => 'test', 'title' => 'A second index']);
 
         $submission = $page_2->toArray();
         $submission['uri'] = '';
 
-        $this->signIn($this->webmaster)
-            ->put('/admin/page/' . $page_2->hashid, $submission)
-            ->ddSession();   
-           // ->assertSessionHasErrors();
+        $this->put('/admin/page/' . $page_2->hashid, $submission)
+           ->assertSessionHasErrors();
 
         $this->json('put', '/admin/page/' . $page_2->hashid, $submission)
            ->assertStatus(422);
@@ -154,12 +153,13 @@ class PagePostTest extends TestCase
     public function it_does_not_allow_updating_to_exisiting_uri()
     {
         $this->signIn($this->webmaster);
+        // $this->withoutExceptionHandling();
 
-        $page_1 = Page::factory()->create(['uri' => 'test']);
-        $page_2 = Page::factory()->create(['uri' => 'test2']);
+        $page_1 = Page::factory()->create(['uri' => 'existing', 'title' => 'A page']);
+        $page_2 = Page::factory()->create(['uri' => 'existing2', 'title' => 'A page trying to have the same URI']);
 
         $submission = $page_2->toArray();
-        $submission['uri'] = 'test';
+        $submission['uri'] = 'existing';
 
         $this->put('/admin/page/' . $page_2->hashid, $submission)
            ->assertSessionHasErrors();

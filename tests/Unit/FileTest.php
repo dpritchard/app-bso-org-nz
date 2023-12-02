@@ -17,9 +17,9 @@ class FileTest extends TestCase
     public function it_can_get_its_mime_type()
     {
         Storage::fake();
-        Storage::disk()->put('test.file', 'NOTHING');
-        $file = File::factory()->create(['storage_path' => 'test.file']);
-
+        Storage::disk()->put('test.txt', 'NOTHING');
+        $file = File::factory()->create(['storage_path' => 'test.txt']);
+        $file->getMimeAttribute();
         $this->assertEquals($file->mime, 'text/plain');
     }
 }
