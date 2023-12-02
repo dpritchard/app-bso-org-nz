@@ -10,9 +10,12 @@ use App\Category;
 class Event extends AppModel
 {
     use HasFactory;
-    
-    protected $dates = ['start', 'finish'];
 
+    protected $casts = [
+        'start' => 'datetime',
+        'finish' => 'datetime'
+    ];
+    
     /**
      * Return a url path for this model
      * @return string A path
