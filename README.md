@@ -1,1 +1,1 @@
-A Laravel 9.x application for the Botanical Society of Otago website.
+A Laravel 10.x application for the Botanical Society of Otago website.

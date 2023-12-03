@@ -107,7 +107,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = Page::factory()->make(['uri' => '']);
+        $page_1 = Page::factory()->create(['uri' => '']);
         $submission = $page_1->toArray();
         $submission['title'] = 'A new title';
 
@@ -121,7 +121,7 @@ class PagePostTest extends TestCase
     {
         $this->signIn($this->webmaster);
 
-        $page_1 = Page::factory()->make(['uri' => 'test']);
+        $page_1 = Page::factory()->create(['uri' => 'test']);
         $submission = $page_1->toArray();
         $submission['title'] = 'A new title';
 

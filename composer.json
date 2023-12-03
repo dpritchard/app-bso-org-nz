@@ -14,8 +14,8 @@
         "laravel/ui": "^4.0",
         "erusev/parsedown-extra": "^0.8.1",
         "ezyang/htmlpurifier": "^4.12",
-        "hashids/hashids": "^4.0",
-        "laravel/tinker": "^2.7"
+        "hashids/hashids": "^5.0",
+        "laravel/tinker": "^2.8"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",
