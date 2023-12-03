@@ -9,12 +9,12 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
-        "axios": "^0.25.0",
+        "axios": "^1.6.2",
         "bootstrap": "^4.5.0",
         "cross-env": "^7.0",
         "dropzone": "^5.7.0",
         "jquery": "^3.5.1",
-        "laravel-mix": "^6.0.41",
+        "laravel-mix": "^6.0.49",
         "lodash": "^4.17.13",
         "moment": "^2.29.4",
         "popper.js": "^1.12",
@@ -25,7 +25,7 @@
         "tempusdominus-core": "^5.0.3",
         "v-autocomplete": "^1.8.2",
         "vue": "^2.6.14",
-        "vue-loader": "^15.9.8",
+        "vue-loader": "^15.11.1",
         "vue-template-compiler": "^2.6.14"
     }
 }
