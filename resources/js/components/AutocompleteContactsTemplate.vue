@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p class="font-weight-bold p-0 m-0">{{ item.name }}</p>
+    <p class="fw-bold p-0 m-0">{{ item.name }}</p>
     <p class="small p-0 m-0">{{item.phone}}</p>
     <p class="small p-0 m-0">{{item.email}}</p>
 </div>

@@ -1,7 +1,7 @@
 <template>
 <div class="row">
-    <fieldset class="form-group col-md">
-        <label for="contact_name">Contact Name</label>
+    <fieldset class="col-md">
+        <label for="contact_name" class="form-label">Contact Name</label>
         <v-autocomplete v-model="item" @update-items="updateItems" @item-selected="itemSelected" @change="change" :items="items" :get-label="itemToValue" :min-len="0" :auto-select-one-item="false" :component-item='template' :input-attrs="{
             class: 'form-control',
             id: 'contact_name',
@@ -11,13 +11,13 @@
         </v-autocomplete>
         <small class="text-muted">The person or organisation to contact (required)</small>
     </fieldset>
-    <fieldset class="form-group col-md">
-        <label for="contact_email">Contact Email</label>
+    <fieldset class="col-md">
+        <label for="contact_email" class="form-label">Contact Email</label>
         <input v-model="email" type="email" class="form-control" id="contact_email" name="contact_email">
         <small class="text-muted">Contact email address (not required)</small>
     </fieldset>
-    <fieldset class="form-group col-md">
-        <label for="contact_phone">Contact Phone</label>
+    <fieldset class="col-md">
+        <label for="contact_phone" class="form-label">Contact Phone</label>
         <input v-model="phone" type="text" class="form-control" id="contact_phone" name="contact_phone">
         <small class="text-muted">Contact phone number (not required)</small>
     </fieldset>
@@ -90,21 +90,6 @@ export default {
 </script>
 
 <style>
-/* .v-autocomplete .v-autocomplete-input-group .v-autocomplete-input {
-font-size: 1.5em;
-padding: 10px 15px;
-box-shadow: none;
-border: 1px solid #157977;
-width: calc(100% - 32px);
-outline: none;
-background-color: #eee;
-} */
-
-/* .v-autocomplete .v-autocomplete-input-group.v-autocomplete-selected .v-autocomplete-input {
-color: #008000;
-background-color: #f2fff2;
-} */
-
 .v-autocomplete .v-autocomplete-list {
     width: 100%;
     text-align: left;
@@ -120,8 +105,8 @@ background-color: #f2fff2;
     background-color: #fff;
     padding: 10px;
     border-bottom: 1px solid #CFD4D9;
-    border-left: 1px solid #CFD4D9;
-    border-right: 1px solid #CFD4D9;
+    border-start: 1px solid #CFD4D9;
+    border-end: 1px solid #CFD4D9;
 }
 
 .v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:last-child {
@@ -147,7 +132,7 @@ pre {
 }
 
 .note {
-    border-left: 5px solid #ccc;
+    border-start: 5px solid #ccc;
     padding: 10px;
 }
 </style>

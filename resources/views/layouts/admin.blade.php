@@ -3,7 +3,7 @@
 @section('main')
 <div class="row">
     <div class="col-12 col-md-3 col-xl-2">
-        <nav class="sidebar collapse" id="sidebar" style="">
+        <nav class="nav flex-md-column sidebar collapse" id="sidebar" style="">
             @include('partials.admin_nav')
         </nav>
     </div>

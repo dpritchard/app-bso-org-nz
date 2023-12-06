@@ -7,14 +7,12 @@
     </div>
     <div><a class="btn btn-success" href="/admin/event/create">Create New</a></div>
 </div>
+<div><p>Click the Edit button to edit and click the URL link to view.</p></div>
 
 @foreach  ($events as $event)
-<div class="row mb-1">
-    <div class="col"><a href="{{ $event->path() }}">{{ $event->start->toFormattedDateString() }} | {!! $event->title_html !!}</a></div>
-    <div class="col-2 text-right">
-        <a class="btn btn-primary btn-sm" href="{{ $event->path() }}">View</a>
-        <a class="btn btn-warning btn-sm" href="/admin/event/{{ $event->hashid }}/edit">Edit</a>
-    </div>
+<div class="d-flex mb-1 align-items-center">
+    <div class="me-2"><a class="btn btn-warning btn-sm" href="/admin/event/{{ $event->hashid }}/edit">Edit</a></div>
+    <div class=""><a href="{{ $event->path() }}">{{ $event->start->toFormattedDateString() }} | {!! $event->title_html !!}</a></div>
 </div>
 @endforeach
 

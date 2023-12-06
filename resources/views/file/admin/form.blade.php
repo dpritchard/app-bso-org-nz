@@ -14,7 +14,7 @@
     @method('PATCH')
     @endif
     <fieldset class="form-group">
-        <label for="file">File</label>
+        <label for="file" class="form-label">File</label>
         <input type="file" name="file">
 
         </fieldset>

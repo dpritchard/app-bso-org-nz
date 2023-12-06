@@ -97,8 +97,8 @@ class EventController extends Controller
             'title' => 'required',
             'contact_name' => 'required',
             'category' => 'required',
-            'start' => 'required|date_format:"Y-m-d H:i"',
-            'finish' => 'nullable|date_format:"Y-m-d H:i"'
+            'start' => 'required|date',
+            'finish' => 'nullable|date'
         ]);
 
         $contact = Contact::firstOrCreate(['name' => $request->contact_name]);
@@ -164,8 +164,8 @@ class EventController extends Controller
             'title' => 'required',
             'contact_name' => 'required',
             'category' => 'required',
-            'start' => 'required|date_format:"Y-m-d H:i"',
-            'finish' => 'nullable|date_format:"Y-m-d H:i"'
+            'start' => 'required|date',
+            'finish' => 'nullable|date'
         ]);
 
         $contact = Contact::firstOrCreate(['name' => $request->contact_name]);

@@ -1,42 +1,5 @@
 @extends('layouts.admin')
-
-@section('extra_js')
-<script>
-    // Consider moving to vue.js, if this works out (currently beta):
-    // https://github.com/ankurk91/vue-bootstrap-datetimepicker/tree/tempusdominus-bs-4
-    // Need to fire an event on mount to sync up pickers with pre-populated data
-    let icons = {
-        time: 'far fa-clock',
-        date: 'far fa-calendar-alt',
-        up: 'fas fa-arrow-up',
-        down: 'fas fa-arrow-down',
-        previous: 'fas fa-chevron-left',
-        next: 'fas fa-chevron-right',
-        today: 'fas fa-calendar-check',
-        clear: 'far fa-trash-alt',
-        close: 'far fa-times-circle'
-    };
-
-    $(function() {
-        $('#start').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm',
-            icons: icons
-        });
-        $('#finish').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm',
-            icons: icons,
-            useCurrent: false
-        });
-        $("#start").on("change.datetimepicker", function(e) {
-            $('#finish').datetimepicker('minDate', e.date);
-        });
-        $("#finish").on("change.datetimepicker", function(e) {
-            $('#start').datetimepicker('maxDate', e.date);
-        });
-    });
-</script>
-@endsection
-
+<!-- Datepicker removed on 2023-12-03. Consdier adding something back again if there is a good option available...  -->
 @section('content')
 @include('partials.form_errors')
 
@@ -47,14 +10,14 @@
     @endif
 
     <div class="row">
-        <fieldset class="form-group col-md-8">
-            <label for="title">Event Title</label>
+        <fieldset class="col-md-8">
+            <label for="title" class="form-label">Event Title</label>
             <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ?? $event->title }}">
             <small class="text-muted">A short, descriptive title.</small>
         </fieldset>
 
-        <fieldset class="form-group col-md-4">
-            <label for="category">Category</label>
+        <fieldset class="col-md-4">
+            <label for="category" class="form-label">Category</label>
             <select class="form-control" id="category" name="category">
                     <option value="">Select a Category...</option>
                     @foreach ($categories as $category)
@@ -67,22 +30,16 @@
 
     <div class="form-group row">
         <div class="col">
-            <label for="start">Start Date and Time</label>
-            <div class="input-group date" id="start" data-target-input="nearest">
-                <input type="text" class="form-control datetimepicker-input" name="start" data-target="#start" value="{{ old('start') ?? $event->start}}"/>
-                <div class="input-group-append" data-target="#start" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
-                </div>
+            <label for="start" class="form-label">Start Date and Time</label>
+            <div class="input-group date" id="start">
+                <input type="datetime-local" class="form-control" name="start" value="{{ old('start') ?? $event->start}}"/>
             </div>
             <small class="text-muted">Start date and time are required.</small>
         </div>
         <div class="col">
-            <label for="finish">Finish Date and Time</label>
-            <div class="input-group date" id="finish" data-target-input="nearest">
-                <input type="text" class="form-control datetimepicker-input" name="finish" data-target="#finish" value="{{ old('finish') ?? $event->finish }}"/>
-                <div class="input-group-append" data-target="#finish" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
-                </div>
+            <label for="finish" class="form-label">Finish Date and Time</label>
+            <div class="input-group date" id="finish">
+                <input type="datetime-local" class="form-control" name="finish" value="{{ old('finish') ?? $event->finish }}"/>
             </div>
             <small class="text-muted">Finish date and time are optional.</small>
         </div>
@@ -94,7 +51,7 @@
     </v-autocomplete-contacts>
 
     <fieldset class="form-group">
-        <label for="editor">Event Description</label>
+        <label for="editor" class="form-label">Event Description</label>
         <v-md-editor :input='{{ json_encode(old('body') ?? $event->body) }}'></v-md-editor>
     </fieldset>
 

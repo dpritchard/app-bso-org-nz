@@ -2,7 +2,7 @@
 <div>
     <div class="nav nav-pills mb-2" role="tablist">
         <button id="edit-tab"
-                v-bind:class="['btn', 'btn-sm',  edit ? 'btn-secondary' : 'btn-outline-secondary', 'mr-2']"
+                v-bind:class="['btn', 'btn-sm',  edit ? 'btn-secondary' : 'btn-outline-secondary', 'me-2']"
                 @click="toggleEdit"
                 type="button"
                 role="tab"
@@ -11,7 +11,7 @@
                 <i class="far fa-edit" :aria-selected="edit"></i> Edit
         </button>
         <button id="preview-tab"
-                v-bind:class="['btn', 'btn-sm', !edit ? 'btn-secondary' : 'btn-outline-secondary', 'mr-auto']"
+                v-bind:class="['btn', 'btn-sm', !edit ? 'btn-secondary' : 'btn-outline-secondary', 'me-auto']"
                 @click="toggleEdit(); updatePreview()"
                 type="button"
                 role="tab"
@@ -47,6 +47,8 @@
 <script>
 import Dropzone from 'dropzone' //eslint-disable-line
 Dropzone.autoDiscover = false
+const axios = require('axios').default; // TODO: Could replace this with livewire/alpine...
+
 export default {
     data() {
         return {

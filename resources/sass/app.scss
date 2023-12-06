@@ -1,15 +1,12 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 // FontAwesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
-// tempusdominus-bootstrap-4
-@import '~tempusdominus-bootstrap-4/src/sass/_tempusdominus-bootstrap-4.scss';
+// Vue Autocomplete
 @import '~v-autocomplete/dist/v-autocomplete.css';
 
 .banner-text {

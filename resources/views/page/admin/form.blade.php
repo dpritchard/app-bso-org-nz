@@ -11,8 +11,8 @@
     @endif
 
     <fieldset class="form-group">
-        <label for="uri">Page URI</label>
-        <div class="input-group mb-2 mr-sm-2">
+        <label for="uri" class="form-label">Page URI</label>
+        <div class="input-group mb-2 me-sm-2">
             <div class="input-group-prepend">
                 <div class="input-group-text">{{ url('/') . '/' }}</div>
             </div>
@@ -23,13 +23,13 @@
     </fieldset>
 
     <fieldset class="form-group">
-        <label for="title">Page Title</label>
+        <label for="title" class="form-label">Page Title</label>
         <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ?? $page->title }}">
         <small class="text-muted">This will appear at the top of the page as a first-level header.</small>
     </fieldset>
 
     <fieldset class="form-group">
-        <label for="editor">Page Body</label>
+        <label for="editor" class="form-label">Page Body</label>
         <v-md-editor :input='{{ json_encode(old('body') ?? $page->body) }}'></v-md-editor>
     </fieldset>
 

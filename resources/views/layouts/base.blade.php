@@ -27,12 +27,11 @@
                     <span class="d-md-none banner-text">BSO</span>
                 </div>
                 <div class="menu-toggle">
-                    <button class="btn btn-outline-dark d-md-none" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle docs navigation">
+                    <button class="btn btn-outline-dark d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle docs navigation">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
-
             @yield('main')
 
         </div>

@@ -50,7 +50,7 @@
                         v-bind:class="[this.currItem.onShortlist ? 'btn-secondary' : 'btn-outline-secondary']">
                         {{ this.currItem.onShortlist ? 'Remove from Shortlist' : 'Add to Shortlist' }}
                 </button>
-                <button type="button" class="btn ml-1" @click="toggleVote"
+                <button type="button" class="btn ms-1" @click="toggleVote"
                         v-if="allowVotes" 
                         :disabled="!canVote && !this.currItem.hasVote" 
                         v-bind:class="[this.currItem.hasVote ? 'btn-success' : 'btn-outline-success']">
@@ -60,7 +60,7 @@
             <button type="button" class="btn btn-outline-secondary" @click="next" :disabled="atEnd">>></button>
         </div>
         <div class="d-flex justify-content-center" v-if="allowVotes">
-            <p class="font-weight-lighter text-muted">{{ this.remainingVotes }} vote{{ this.remainingVotes == 1 ? '' : 's'}} remaining</p>
+            <p class="fw-lighter text-muted">{{ this.remainingVotes }} vote{{ this.remainingVotes == 1 ? '' : 's'}} remaining</p>
         </div>
     </div>
 </div>
@@ -238,7 +238,7 @@
          box-shadow: 0 5px 11px rgba(36, 37, 38, 0.08);
      }
 
-     .modal .close {
+     .modal .btn-close {
          position: absolute;
          top: 15px;
          right: 15px;
