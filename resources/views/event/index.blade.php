@@ -15,7 +15,7 @@
         <h2><a href="{{ $event->path() }}">{!! $event->title_html !!}</a></h2>
     </div>
     <div class="d-flex align-items-center mb-2">
-        <div class="py-1 ps-2 pe-4">
+        <div class="icon-box text-center">
             @switch($event->category->type)
                 @case("Field Trip")
                     <i class="fas fa-tree fa-2x"></i>
@@ -29,7 +29,7 @@
                     <i class="fas fa-info-circle fa-2x"></i>
             @endswitch
         </div>
-        <div class="flex-grow-1">
+        <div class="">
             <p class="mb-0">{{ $event->category->type }} on {{ $event->start->format('l jS \\of F Y\\, h:i A') }} <small>({{ $event->start->diffForHumans() }})</small></p>
             <p class="mb-0">Contact: {{ $event->contact->name }}
                 @if  ($event->contact->email)
