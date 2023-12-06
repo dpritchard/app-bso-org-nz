@@ -36,3 +36,7 @@ img {
 table {
     @extend .table;
 }
+
+h2 > a {
+    text-decoration: none;
+}
