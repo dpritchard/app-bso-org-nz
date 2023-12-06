@@ -10,7 +10,7 @@
 @endif
 
 @foreach  ($events as $event)
-<div class="d-flex flex-column">
+<div>
     <div>
         <h2><a href="{{ $event->path() }}">{!! $event->title_html !!}</a></h2>
     </div>
