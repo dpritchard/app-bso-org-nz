@@ -1,5 +1,32 @@
 @extends('layouts.admin')
-<!-- Datepicker removed on 2023-12-03. Consdier adding something back again if there is a good option available...  -->
+
+@section('extra_js')
+<script type="text/javascript">
+    const st = flatpickr("#start", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+             instance.set('maxDate', fi.selectedDates[0])
+        },
+        onChange: function(selectedDates, dateStr, instance) {
+             fi.set('minDate', dateStr)
+        },
+    });
+    const fi = flatpickr("#finish", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+             instance.set('minDate', st.selectedDates[0])
+        },
+        onChange: function(selectedDates, dateStr, instance) {
+             st.set('maxDate', dateStr)
+        },
+    });
+</script>
+@endsection
+
 @section('content')
 @include('partials.form_errors')
 
@@ -31,15 +58,15 @@
     <div class="form-group row">
         <div class="col">
             <label for="start" class="form-label">Start Date and Time</label>
-            <div class="input-group date" id="start">
-                <input type="datetime-local" class="form-control" name="start" value="{{ old('start') ?? $event->start}}"/>
+            <div class="input-group date">
+                <input id="start" type="datetime-local" class="form-control" name="start" value="{{ old('start') ?? $event->start}}"/>
             </div>
             <small class="text-muted">Start date and time are required.</small>
         </div>
         <div class="col">
             <label for="finish" class="form-label">Finish Date and Time</label>
-            <div class="input-group date" id="finish">
-                <input type="datetime-local" class="form-control" name="finish" value="{{ old('finish') ?? $event->finish }}"/>
+            <div class="input-group date">
+                <input id="finish" type="datetime-local" class="form-control" name="finish" value="{{ old('finish') ?? $event->finish }}"/>
             </div>
             <small class="text-muted">Finish date and time are optional.</small>
         </div>
