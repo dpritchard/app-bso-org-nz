@@ -5,7 +5,7 @@
 <h1>{{ $title }}</h1>
 
 @if ($show_locations)
-<p>Talks are held at Manaaki Whenua Landcare Research in the Main Seminar room, 764 Cumberland Street, Dunedin. Please be prompt as we have to hold the door open. Zoom links for the talks are sent to members, <a href="https://bso.org.nz/about-joining-the-bso">join the BSO here</a>.</p>
+<p>Talks are held in the Zoology Benham Building, 346 Great King Street, behind the Zoology car park by the old Captain Cook Hotel. This is where we used to meet pre-covid. Please use the main entrance of the Benham Building to enter and go to the Benham Seminar Room, Room 215, located on the second floor. Please be prompt as we have to hold the door open. Zoom links for the talks are sent to members, <a href="https://bso.org.nz/about-joining-the-bso">join the BSO here</a>.</p>
 <p>Trips leave from the Department of Botany car park.</p>
 @endif
 
