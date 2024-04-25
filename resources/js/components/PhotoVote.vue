@@ -1,72 +1,71 @@
 <template>
 
-<div class="container">
-<div class="row mb-3">
-    <div v-for="cat in categories" class="col-sm text-center">
-        <h3>{{ cat.name }}</h3>
-        <p><a href="#" @click="showCategory(cat.code)" class="btn btn-outline-primary" role="button">View Category Entries</a></p>
+    <div class="container">
+    <div class="row mb-3">
+        <div v-for="cat in categories" class="col-sm text-center">
+            <h3>{{ cat.name }}</h3>
+            <p><a href="#" @click="showCategory(cat.code)" class="btn btn-outline-primary" role="button">View Category Entries</a></p>
+        </div>
     </div>
-</div>
 
-<div class="row mb-3" v-if="hasShortlist">
-    <div class="col">
-        <h2>Your Shortlist</h2>
-        <p>You have shortlisted {{ this.shortlist.length }} image{{ this.shortlist.length == 1 ? '' : 's' }}.</p>
-        <p><button type="button" class="btn btn-outline-secondary" @click="showShortlist" :disabled="!hasShortlist">Review My Shortlist</button></p>
+    <div class="row mb-3" v-if="hasShortlist">
+        <div class="col">
+            <h2>Your Shortlist</h2>
+            <p>You have shortlisted {{ this.shortlist.length }} image{{ this.shortlist.length == 1 ? '' : 's' }}.</p>
+            <p><button type="button" class="btn btn-outline-secondary" @click="showShortlist" :disabled="!hasShortlist">Review My Shortlist</button></p>
+        </div>
     </div>
-</div>
 
-<div class="row mb-3" v-if="hasVotes & allowVotes">
-    <div class="col">
-        <h2>Your Vote{{ this.votes.length == 1 ? '' : 's' }}</h2>
-        <p>You have voted for {{ this.votes.length }} image{{ this.votes.length == 1 ? '' : 's' }}.</p>
-        <p><button type="button" class="btn btn-outline-success" @click="showVotes" :disabled="!hasVotes">Review My Votes</button></p>
-        <p>To cast your vote, please send an email to Gretchen Brownstein (BrownsteinG@landcareresearch.co.nz) with the following information, or 
-        <a href="#" @click="sendMail">click here</a> to open a draft message in your mail client.</p>
-        <p>
-        <ul>
-            <li v-for="vote in votes">{{ vote.title }} (code: {{ vote.id }})</li>
-        </ul>
-        </p>
-    </div>
-</div>
-
-<div class="overlay" v-bind:class="{ 'show-overlay': showModal }">
-    <a href="#" class="cancel" @click="hide"></a>
-    <div class="my-modal text-center">
-        <img :src="this.currItem.url" class="img-fluid img-modal">
-        
-        <div class="text-center">
+    <div class="row mb-3" v-if="hasVotes & allowVotes">
+        <div class="col">
+            <h2>Your Vote{{ this.votes.length == 1 ? '' : 's' }}</h2>
+            <p>You have voted for {{ this.votes.length }} image{{ this.votes.length == 1 ? '' : 's' }}.</p>
+            <p><button type="button" class="btn btn-outline-success" @click="showVotes" :disabled="!hasVotes">Review My Votes</button></p>
+            <p>To cast your vote, please send an email to Gretchen Brownstein (BrownsteinG@landcareresearch.co.nz) with the following information, or
+            <a href="#" @click="sendMail">click here</a> to open a draft message in your mail client.</p>
             <p>
-                {{ this.currView+1 }} of {{ this.currList.length }}: 
-                {{ this.currItem.caption ? this.currItem.caption : this.currItem.title }}.
+            <ul>
+                <li v-for="vote in votes">{{ vote.title }} (code: {{ vote.id }})</li>
+            </ul>
             </p>
         </div>
-        
-        <div class="d-flex justify-content-between">
-            <button type="button" class="btn btn-outline-secondary" @click="previous" :disabled="atBeginning"><<</button>
-            <div class="d-flex flex-column justify-content-center flex-sm-row">
-                <button type="button" class="btn" @click="toggleShortlist" 
-                        v-bind:class="[this.currItem.onShortlist ? 'btn-secondary' : 'btn-outline-secondary']">
-                        {{ this.currItem.onShortlist ? 'Remove from Shortlist' : 'Add to Shortlist' }}
-                </button>
-                <button type="button" class="btn ms-1" @click="toggleVote"
-                        v-if="allowVotes" 
-                        :disabled="!canVote && !this.currItem.hasVote" 
-                        v-bind:class="[this.currItem.hasVote ? 'btn-success' : 'btn-outline-success']">
-                        {{ this.currItem.hasVote ? 'Remove Vote' : 'Add Vote' }}
-                </button>
+    </div>
+
+    <div class="overlay" v-bind:class="{ 'show-overlay': showModal }">
+        <a href="#" class="cancel" @click="hide"></a>
+        <div class="my-modal text-center">
+            <img :src="this.currItem.url" class="img-fluid img-modal">
+
+            <div class="text-center">
+                <p>
+                    {{ this.currView+1 }} of {{ this.currList.length }}:
+                    {{ this.currItem.caption ? this.currItem.caption : this.currItem.title }}.
+                </p>
             </div>
-            <button type="button" class="btn btn-outline-secondary" @click="next" :disabled="atEnd">>></button>
-        </div>
-        <div class="d-flex justify-content-center" v-if="allowVotes">
-            <p class="fw-lighter text-muted">{{ this.remainingVotes }} vote{{ this.remainingVotes == 1 ? '' : 's'}} remaining</p>
+
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" @click="previous" :disabled="atBeginning"><<</button>
+                <div class="d-flex flex-column justify-content-center flex-sm-row">
+                    <button type="button" class="btn" @click="toggleShortlist"
+                            v-bind:class="[this.currItem.onShortlist ? 'btn-secondary' : 'btn-outline-secondary']">
+                            {{ this.currItem.onShortlist ? 'Remove from Shortlist' : 'Add to Shortlist' }}
+                    </button>
+                    <button type="button" class="btn ms-1" @click="toggleVote"
+                            v-if="allowVotes"
+                            :disabled="!canVote && !this.currItem.hasVote"
+                            v-bind:class="[this.currItem.hasVote ? 'btn-success' : 'btn-outline-success']">
+                            {{ this.currItem.hasVote ? 'Remove Vote' : 'Add Vote' }}
+                    </button>
+                </div>
+                <button type="button" class="btn btn-outline-secondary" @click="next" :disabled="atEnd">>></button>
+            </div>
+            <div class="d-flex justify-content-center" v-if="allowVotes">
+                <p class="fw-lighter text-muted">{{ this.remainingVotes }} vote{{ this.remainingVotes == 1 ? '' : 's'}} remaining</p>
+            </div>
         </div>
     </div>
-</div>
 
-</div>
-
+    </div>
 </template>
 
 <script>
@@ -164,7 +163,8 @@
                 }
              },
              sendMail: function(){
-                var address = ['BrownsteinG', 'landcareresearch.co.nz']
+                var address = ['josinclair6', 'gmail.com']
+                // var address = ['BrownsteinG', 'landcareresearch.co.nz']
                 // var address = ['BrandtA', 'landcareresearch.co.nz']
                 var subject = 'BSO Photo Competition Votes'
                 var s = this.votes.length == 1 ? '' : 's'

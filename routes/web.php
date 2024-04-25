@@ -42,6 +42,7 @@ Route::view('/photo-competition/2020', 'photo_competition.2020');
 Route::view('/photo-competition/2021', 'photo_competition.2021');
 Route::view('/photo-competition/2022', 'photo_competition.2022');
 Route::view('/photo-competition/2023', 'photo_competition.2023');
+Route::view('/photo-competition/2024', 'photo_competition.2024');
 
 Route::post('/api/render-md', 'ApiController@renderMarkdown');
 
