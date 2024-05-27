@@ -4,6 +4,7 @@
 <div class="mb-5">
 	<h1>2024 Photo Competition</h1>
 	<!-- Notes for 2025... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
+<!--
 	<p>Welcome to the 2024 BSO Photo Competition. This year we have received 57 photos, from 15 photographers, across the 3 categories.</p>
 
 	<p>Our judges will decide the overall category winners and their decision will be announced on May 8 2024 at the AGM. However, we also have a <em>People’s Choice Award</em> which is up to you!</p>
@@ -11,44 +12,45 @@
 	<h3>Voting Information</h3>
 	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
+ -->
 
-<!--
-	<p>Welcome to the 2024 BSO Photo Competition. This year, we received 57 photos, from 15 photographers, across the 3 categories.</p>
+	<p>Welcome to the 2025 BSO Photo Competition. This year, we received 57 photos, from 15 photographers, across the 3 categories.</p>
 
-	<p>Our judges announced the overall category winners on May 8 2024 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. This year we had a [How Many Winners? XYZ] for the <em>People’s Choice Award</em></p>
+	<p>Our judges announced the overall category winners on May 8 2025 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members.</p>
 
 	<h3>Category Winner: Plant Portrait</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/jx7gdx/1_9_flax_flower.jpg" class="figure-img img-fluid rounded" alt="Stunning colours on a flax flower by Lydia Turley">
+		<figcaption class="figure-caption">Flax Flower by Lydia Turley. Stunning colours on a flax flower</figcaption>
 	</figure>
 
 	<h3>Category Winner: Plants in the Landscape</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/w8pelq/2_9_mountain_rays.jpeg" class="figure-img img-fluid rounded" alt="Sunset in the Murchison Mountains by Gretchen Brownstein">
+		<figcaption class="figure-caption">Mountain Rays by Gretchen Brownstein. Sunset in the Murchison Mountains.</figcaption>
 	</figure>
+
 
 	<h3>Category Winner: Patterns in Nature</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="" class="figure-img img-fluid rounded" alt="A toppled makomako, Aristotelia serrata claws on to life by Allison Knight.">
+		<figcaption class="figure-caption">Claw by Allison Knight. A toppled makomako, <em>Aristotelia serrata</em> claws on to life. Tuapeka West.</figcaption>
 	</figure>
 
-	<h3><em>People’s Choice Award (??/??)</em></h3>
+	<h3><em>People’s Choice Award</em></h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption"></figcaption>
+		<img src="https://bso.org.nz/f/d8do5x/2_3_living_in_the_alpine.jpeg" class="figure-img img-fluid rounded" alt="Dracophyllum menziesii poking through thick spring snow in front of Mt Xenicus by Anne Schlesselmann">
+		<figcaption class="figure-caption">Living in the alpine by Anne Schlesselmann. <em>Dracophyllum menziesii</em> poking through thick spring snow in front of Mt Xenicus, near the Routeburn.</figcaption>
 	</figure>
 
 	<h3>Viewing Information</h3>
 	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
- -->
+
 
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
-	v-bind:allow-votes="true"
+	v-bind:allow-votes="false"
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
@@ -76,8 +78,8 @@
 {f: 'https://bso.org.nz/f/rxr118/1_19_gyromitra_infula_possibly.jpg', c: 'Walking in the pine'},
 {f: 'https://bso.org.nz/f/mxjogq/2_1_polypore_plus.jpeg', c: 'A rotting Nothofagus trunk landscape is populated by colourful bracket fungi interspersed with parmelioid and beard lichens (Usnea sp). Tuapeka West'},
 {f: 'https://bso.org.nz/f/vxkob8/2_2_tussock_sunset.jpeg', c: 'Tussock glows as the sun sets above Manorburn Dam, Central Otago'},
-{f: 'https://bso.org.nz/f/d8do5x/2_3_living_in_the_alpine_.jpeg', c: 'Dracophyllum menziesii poking through thick spring snow in front of Mt Xenicus, near the Routeburn'},
-{f: 'https://bso.org.nz/f/e89r18/2_4_rakeahua_reflections_.jpg', c: 'Mirror Morning'},
+{f: 'https://bso.org.nz/f/d8do5x/2_3_living_in_the_alpine.jpeg', c: 'Dracophyllum menziesii poking through thick spring snow in front of Mt Xenicus, near the Routeburn'},
+{f: 'https://bso.org.nz/f/e89r18/2_4_rakeahua_reflections.jpg', c: 'Mirror Morning'},
 {f: 'https://bso.org.nz/f/bxvwl8/2_5_mason_bay.jpeg', c: 'Popping Ping'},
 {f: 'https://bso.org.nz/f/d84e1q/2_6_pincushion_stepping_stones.jpg', c: 'Cushions of Agrostis muscosa and moss in an ephemeral alpine wetland, Old Man Range'},
 {f: 'https://bso.org.nz/f/p8l678/2_7_alpine_red_carpet.jpg', c: 'A carpet of Epilobium tasmanicum in an alpine fell field'},
