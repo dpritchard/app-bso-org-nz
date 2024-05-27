@@ -33,7 +33,7 @@
 
 	<h3>Category Winner: Patterns in Nature</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="A toppled makomako, Aristotelia serrata claws on to life by Allison Knight.">
+		<img src="https://bso.org.nz/f/eqg5zx/3_3_claw.jpeg" class="figure-img img-fluid rounded" alt="A toppled makomako, Aristotelia serrata claws on to life by Allison Knight.">
 		<figcaption class="figure-caption">Claw by Allison Knight. A toppled makomako, <em>Aristotelia serrata</em> claws on to life. Tuapeka West.</figcaption>
 	</figure>
 
