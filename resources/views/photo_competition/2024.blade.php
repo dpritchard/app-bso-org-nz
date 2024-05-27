@@ -21,7 +21,7 @@
 	<h3>Category Winner: Plant Portrait</h3>
 	<figure class="figure">
 		<img src="https://bso.org.nz/f/jx7gdx/1_9_flax_flower.jpg" class="figure-img img-fluid rounded" alt="Stunning colours on a flax flower by Lydia Turley">
-		<figcaption class="figure-caption">Flax Flower by Lydia Turley. Stunning colours on a flax flower</figcaption>
+		<figcaption class="figure-caption">Flax Flower by Lydia Turley. Stunning colours on a flax flower.</figcaption>
 	</figure>
 
 	<h3>Category Winner: Plants in the Landscape</h3>
@@ -33,7 +33,7 @@
 
 	<h3>Category Winner: Patterns in Nature</h3>
 	<figure class="figure">
-		<img src="https://bso.org.nz/f/eqg5zx/3_3_claw.jpeg" class="figure-img img-fluid rounded" alt="A toppled makomako, Aristotelia serrata claws on to life by Allison Knight.">
+		<img src="https://bso.org.nz/f/eqg5zx/3_3_claw.jpeg" class="figure-img img-fluid rounded" alt="A toppled makomako, Aristotelia serrata claws on to life by Allison Knight">
 		<figcaption class="figure-caption">Claw by Allison Knight. A toppled makomako, <em>Aristotelia serrata</em> claws on to life. Tuapeka West.</figcaption>
 	</figure>
 
