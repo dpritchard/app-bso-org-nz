@@ -6,8 +6,8 @@
 <a class="nav-link" href="/baylis">Baylis Lecture</a>
 <a class="nav-link" href="/photo-competition">Photo Competition</a>
 <a class="nav-link" href="/eagle-drawing-competiton">Drawing Competiton</a>
+<a class="nav-link" href="/scholarships">Bannister Student Grant</a>
 <a class="nav-link" href="/lichen-guide">Lichen Guide</a>
-{{-- <a class="nav-link" href="/pbfund">The Peter Bannister Student Field Grant</a> --}}
 <a class="nav-link" href="/newsletter"><i>Newsletter</i></a>
 <a class="nav-link" href="/species-lists">Species Lists</a>
 <a class="nav-link" href="/eagle-supplement">Eagle Supplements</a>
