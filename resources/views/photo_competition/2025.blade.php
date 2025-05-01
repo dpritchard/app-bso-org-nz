@@ -58,7 +58,7 @@
     	{code: 3, name: 'Life Under the Lens', description: ''}
     ]"
     v-bind:images="[
-{f: 'https://bso.org.nz/f/bxv9mq/1_1_pekepekekiore.jpeg', c: 'Edible icicle fungus, Hericium novae_zealandiae, growing on rotting Nothofagus.'},
+{f: 'https://bso.org.nz/f/bxv9mq/1_1_pekepekekiore.jpeg', c: 'Edible icicle fungus, Hericium novae-zealandiae, growing on rotting Nothofagus.'},
 {f: 'https://bso.org.nz/f/e89pwq/1_2_pixie_cup_fantasy.jpeg', c: 'Cladonia dreams on a decaying Pinus radiata stump.'},
 {f: 'https://bso.org.nz/f/p8lzwx/1_3_uv_indicator_sunburst_lichen.jpeg', c: 'Xanthoria parietina makes an orange pigment, parietin, to protect the underlying green algae.'},
 {f: 'https://bso.org.nz/f/d849dx/1_4_dune_gentian_rakiura.jpg', c: 'Dune gentian, Rakiura'},
