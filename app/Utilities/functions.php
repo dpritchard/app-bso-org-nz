@@ -1,20 +1,30 @@
 <?php
 
+use League\CommonMark\GithubFlavoredMarkdownConverter;
+
 /**
  * Convert some text to Markdown...
  */
 
-// https://github.com/erusev/parsedown#security
+// https://commonmark.thephpleague.com/security/
 // http://htmlpurifier.org
 function markdown($text, $block = true)
 {
-    $parser = new ParsedownExtra;
+    if ($text === null) return '';
+
+    $converter = new GithubFlavoredMarkdownConverter([
+        'html_input' => 'strip',
+        'allow_unsafe_links' => false,
+    ]);
     $purifier = new HTMLPurifier;
-    if($block){
-        $dirty_html = $parser->text($text);
-    } else {
-        $dirty_html = $parser->line($text);
+
+    $dirty_html = $converter->convert($text)->getContent();
+
+    if (!$block) {
+        // Inline mode: strip wrapping <p> tags
+        $dirty_html = preg_replace('/^<p>(.*)<\/p>\s*$/s', '$1', trim($dirty_html));
     }
+
     return $purifier->purify($dirty_html);
 }
 

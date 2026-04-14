@@ -72,7 +72,7 @@ export default {
     },
     methods: {
         toggleEdit(event) {
-            if (event.target.getAttribute('aria-selected')) {
+            if (event.target.getAttribute('aria-selected') === 'true') {
                 return
             }
             this.edit = !this.edit
