@@ -12,7 +12,7 @@
         </button>
         <button id="preview-tab"
                 v-bind:class="['btn', 'btn-sm', !edit ? 'btn-secondary' : 'btn-outline-secondary', 'me-auto']"
-                @click="toggleEdit(); updatePreview()"
+                @click="toggleEdit($event); updatePreview()"
                 type="button"
                 role="tab"
                 aria-controls="preview"
@@ -47,7 +47,7 @@
 <script>
 import Dropzone from 'dropzone' //eslint-disable-line
 Dropzone.autoDiscover = false
-const axios = require('axios').default; // TODO: Could replace this with livewire/alpine...
+import axios from 'axios';
 
 export default {
     data() {
@@ -71,8 +71,7 @@ export default {
         }
     },
     methods: {
-        toggleEdit() {
-            // console.log(event.target);
+        toggleEdit(event) {
             if (event.target.getAttribute('aria-selected')) {
                 return
             }
@@ -141,6 +140,7 @@ export default {
             console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
         }
         this.value = this.input
+        //console.log(this.$refs) CARRY ON HERE
         this.dropzone = new Dropzone(this.$refs.editor, this.dropzoneSettings)
         this.dropzone.on('sending', (file, xhr, formData) => {
             console.log('SEND')

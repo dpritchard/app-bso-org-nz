@@ -1,32 +1,5 @@
 @extends('layouts.admin')
 
-@section('extra_js')
-<script type="text/javascript">
-    const st = flatpickr("#start", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true,
-        onOpen: function(selectedDates, dateStr, instance) {
-             instance.set('maxDate', fi.selectedDates[0])
-        },
-        onChange: function(selectedDates, dateStr, instance) {
-             fi.set('minDate', dateStr)
-        },
-    });
-    const fi = flatpickr("#finish", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true,
-        onOpen: function(selectedDates, dateStr, instance) {
-             instance.set('minDate', st.selectedDates[0])
-        },
-        onChange: function(selectedDates, dateStr, instance) {
-             st.set('maxDate', dateStr)
-        },
-    });
-</script>
-@endsection
-
 @section('content')
 @include('partials.form_errors')
 

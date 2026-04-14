@@ -1,19 +1,41 @@
-// New (December 2023) imports:
 import flatpickr from "flatpickr";
 import 'bootstrap';
+import { createApp } from 'vue';
+import AutocompleteContacts from './components/AutocompleteContacts.vue';
+import MarkdownEditor from './components/MarkdownEditor.vue';
+import PhotoVote from './components/PhotoVote.vue';
 
-// Vue2 is dead. Need to migrate away or up to Vue3.
-// TODO:
-// [x] Find a good datetime picker for the events page (Done 2023-12-26)
-// [ ] Replace the autocomplete (contacts) dropdown on the events page
-// [ ] Replace axios (on the markdown editor) with livewire (?). Review Dropzone (seems to be working OK.)
-// [ ] Replace lodash (on the photo vote page, only I think?) with ??.
+const app = createApp({});
+app.component('v-autocomplete-contacts', AutocompleteContacts);
+app.component('v-md-editor', MarkdownEditor);
+app.component('v-photo-vote', PhotoVote);
+app.mount('#app');
 
-import _ from 'lodash';
-import Vue from 'vue' ;
-Vue.component('v-autocomplete-contacts', require('./components/AutocompleteContacts.vue').default);
-Vue.component('v-md-editor', require('./components/MarkdownEditor.vue').default);
-Vue.component('v-photo-vote', require('./components/PhotoVote.vue').default);
-const app = new Vue({
-    el: '#app',
-});
+// Initialise flatpickr date pickers after Vue has mounted
+const startEl = document.querySelector('#start');
+const finishEl = document.querySelector('#finish');
+if (startEl && finishEl) {
+    let st, fi;
+    st = flatpickr(startEl, {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+            instance.set('maxDate', fi.selectedDates[0]);
+        },
+        onChange: function(selectedDates, dateStr, instance) {
+            fi.set('minDate', dateStr);
+        },
+    });
+    fi = flatpickr(finishEl, {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true,
+        onOpen: function(selectedDates, dateStr, instance) {
+            instance.set('minDate', st.selectedDates[0]);
+        },
+        onChange: function(selectedDates, dateStr, instance) {
+            st.set('maxDate', dateStr);
+        },
+    });
+}

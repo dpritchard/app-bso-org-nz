@@ -23,11 +23,9 @@
             <p><button type="button" class="btn btn-outline-success" @click="showVotes" :disabled="!hasVotes">Review My Votes</button></p>
             <p>To cast your vote, please send an email to Jo Sinclair (josinclair6@gmail.com) with the following information, or
             <a href="#" @click="sendMail">click here</a> to open a draft message in your mail client.</p>
-            <p>
             <ul>
                 <li v-for="vote in votes">{{ vote.title }} (code: {{ vote.id }})</li>
             </ul>
-            </p>
         </div>
     </div>
 
@@ -77,7 +75,7 @@
         },
         data: function () {
             return {
-                imgDat: {},
+                imgDat: [],
                 currList: [],
                 currView: 0,
                 showModal: false
@@ -100,13 +98,13 @@
                 return this.currList[this.currView] ?? {}
             },
             shortlist: function() {
-                return _.filter(this.imgDat, 'onShortlist');
+                return this.imgDat.filter(item => item.onShortlist);
             },
             hasShortlist: function() {
                 return this.shortlist.length > 0
             },
             votes: function() {
-                return _.filter(this.imgDat, 'hasVote');
+                return this.imgDat.filter(item => item.hasVote);
             },
             hasVotes: function() {
                 return this.votes.length > 0
@@ -144,7 +142,7 @@
                 }
              },
              showCategory: function(code){
-                this.currList = _.filter(this.imgDat, ['catString', _.toString(code)]);
+                this.currList = this.imgDat.filter(item => item.catString === String(code));
                 this.currView = 0;
                 this.show();
              },
@@ -171,7 +169,7 @@
                 var bodylines = [
                     'Kia ora Jo,', '',
                     'I would like to cast the following vote' + s +' in the BSO photo competition:', '']
-                _.forEach(this.votes, function(value) {
+                this.votes.forEach(function(value) {
                     bodylines.push('    - ' + value.title + ' (code: ' + value.id + ')')
                 })
                 var uri = "mailto:" + address.join('@')
@@ -181,11 +179,11 @@
              }
         },
         mounted: function () {
-            this.imgDat =  _.map(this.images, (value, index, collection) => {
+            this.imgDat =  this.images.map((value) => {
                     var parts = value.f.match(/(\d+)_(\d+)_(.+)\./m)
                     return {
                         id: parts[1] + '-' + parts[2],
-                        category: _.find(this.categories, ['code', _.toInteger(parts[1])]),
+                        category: this.categories.find(c => c.code === parseInt(parts[1])),
                         catString: parts[1],
                         imgString: parts[2],
                         title: parts[3].replace(/_+/gm, " ").replace(/[\s.]+$/gm, ""),

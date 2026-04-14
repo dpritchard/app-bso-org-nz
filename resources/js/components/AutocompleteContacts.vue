@@ -1,138 +1,119 @@
 <template>
-<div class="row">
-    <fieldset class="col-md">
-        <label for="contact_name" class="form-label">Contact Name</label>
-        <v-autocomplete v-model="item" @update-items="updateItems" @item-selected="itemSelected" @change="change" :items="items" :get-label="itemToValue" :min-len="0" :auto-select-one-item="false" :component-item='template' :input-attrs="{
-            class: 'form-control',
-            id: 'contact_name',
-            name: 'contact_name',
-            type: 'text'
-        }">
-        </v-autocomplete>
-        <small class="text-muted">The person or organisation to contact (required)</small>
-    </fieldset>
-    <fieldset class="col-md">
-        <label for="contact_email" class="form-label">Contact Email</label>
-        <input v-model="email" type="email" class="form-control" id="contact_email" name="contact_email">
-        <small class="text-muted">Contact email address (not required)</small>
-    </fieldset>
-    <fieldset class="col-md">
-        <label for="contact_phone" class="form-label">Contact Phone</label>
-        <input v-model="phone" type="text" class="form-control" id="contact_phone" name="contact_phone">
-        <small class="text-muted">Contact phone number (not required)</small>
-    </fieldset>
-</div>
+    <div class="row">
+        <fieldset class="col-md">
+            <label for="contact_name" class="form-label">Contact Name</label>
+            <div class="autocomplete-wrap">
+                <input
+                    v-model="name"
+                    @input="onInput"
+                    @focus="showList = true"
+                    @blur="onBlur"
+                    type="text"
+                    class="form-control"
+                    id="contact_name"
+                    name="contact_name"
+                    autocomplete="off"
+                >
+                <ul v-if="showList && filtered.length" class="autocomplete-list">
+                    <li v-for="item in filtered" :key="item.name" @mousedown="select(item)">
+                        <p class="fw-bold p-0 m-0">{{ item.name }}</p>
+                        <p class="small p-0 m-0">{{ item.phone }}</p>
+                        <p class="small p-0 m-0">{{ item.email }}</p>
+                    </li>
+                </ul>
+            </div>
+            <small class="text-muted">The person or organisation to contact (required)</small>
+        </fieldset>
+        <fieldset class="col-md">
+            <label for="contact_email" class="form-label">Contact Email</label>
+            <input v-model="email" type="email" class="form-control" id="contact_email" name="contact_email">
+            <small class="text-muted">Contact email address (not required)</small>
+        </fieldset>
+        <fieldset class="col-md">
+            <label for="contact_phone" class="form-label">Contact Phone</label>
+            <input v-model="phone" type="text" class="form-control" id="contact_phone" name="contact_phone">
+            <small class="text-muted">Contact phone number (not required)</small>
+        </fieldset>
+    </div>
 </template>
 
 <script>
-import ItemTemplate from './AutocompleteContactsTemplate.vue'
-import Autocomplete from 'v-autocomplete';
-
 export default {
+    props: {
+        source: { type: Array, required: true },
+        model:  { type: Object, required: true },
+        old:    { type: Object, required: true },
+    },
     data() {
         return {
-            item: {},
-            items: [],
-            email: '',
-            phone: '',
-            template: ItemTemplate
+            name:     '',
+            email:    '',
+            phone:    '',
+            showList: false,
         }
     },
-    components: {
-        'v-autocomplete': Autocomplete
-    },
-    props: {
-        source: {
-            type: Array,
-            required: true
+    computed: {
+        filtered() {
+            if (!this.name) return this.source;
+            const pattern = new RegExp(this.name.toLowerCase());
+            return this.source.filter(item => pattern.test(item.name.toLowerCase()));
         },
-        model: {
-            type: Object,
-            required: true
-        },
-        old: {
-            type: Object,
-            required: true
-        }
-
     },
-
     created() {
-        this.items = this.source;
-        this.item.name = this.model.name || this.old.contact_name || ''
-        this.item.email = this.email = this.model.email || this.old.contact_email || ''
-        this.item.phone = this.phone = this.model.phone || this.old.contact_phone || ''
+        this.name  = this.model.name  || this.old.contact_name  || '';
+        this.email = this.model.email || this.old.contact_email || '';
+        this.phone = this.model.phone || this.old.contact_phone || '';
     },
-
     methods: {
-        itemToValue(item) {
-            if (item) {
-                return item.name
-            }
+        onInput() {
+            this.email = '';
+            this.phone = '';
+            this.showList = true;
         },
-        change() {
-            this.email = null;
-            this.phone = null;
+        onBlur() {
+            this.showList = false;
         },
-        itemSelected(item) {
+        select(item) {
+            this.name  = item.name;
             this.email = item.email;
             this.phone = item.phone;
+            this.showList = false;
         },
-        updateItems(text) {
-            if (text) {
-                this.items = this.source.filter((item) => {
-                    return (new RegExp(text.toLowerCase())).test(item.name.toLowerCase())
-                });
-            }
-        },
-    }
+    },
 }
 </script>
 
-<style>
-.v-autocomplete .v-autocomplete-list {
+<style scoped>
+.autocomplete-wrap {
+    position: relative;
+}
+
+.autocomplete-list {
+    position: absolute;
+    z-index: 100;
     width: 100%;
-    text-align: left;
-    border: none;
-    border-top: none;
     max-height: 400px;
     overflow-y: auto;
-    border-bottom: 1px solid #CFD4D9;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #CFD4D9;
+    border-top: none;
+    background: #fff;
 }
 
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item {
-    cursor: pointer;
-    background-color: #fff;
+.autocomplete-list li {
     padding: 10px;
+    cursor: pointer;
     border-bottom: 1px solid #CFD4D9;
-    border-start: 1px solid #CFD4D9;
-    border-end: 1px solid #CFD4D9;
+    text-align: left;
 }
 
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:last-child {
+.autocomplete-list li:last-child {
     border-bottom: none;
 }
 
-.v-autocomplete .v-autocomplete-list .v-autocomplete-list-item:hover {
+.autocomplete-list li:hover {
     background-color: #eee;
-}
-
-pre {
-    text-align: left;
-    white-space: pre-wrap;
-    background-color: #eee;
-    border: 1px solid #c0c0c0;
-    padding: 20px !important;
-    border-radius: 10px;
-    font-family: monospace !important;
-}
-
-.left {
-    text-align: left;
-}
-
-.note {
-    border-start: 5px solid #ccc;
-    padding: 10px;
 }
 </style>

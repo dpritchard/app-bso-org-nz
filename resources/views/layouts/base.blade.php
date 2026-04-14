@@ -12,7 +12,7 @@
     <title>Botanical Society of Otago</title>
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -36,8 +36,6 @@
 
         </div>
     </div>
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
     @yield('extra_js')
 </body>
 

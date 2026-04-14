@@ -3,13 +3,11 @@
 // Variables
 @import 'variables';
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 // FontAwesome
-@import '~@fortawesome/fontawesome-free/css/all.css';
-// Vue Autocomplete
-@import '~v-autocomplete/dist/v-autocomplete.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
 
-@import '~flatpickr/dist/flatpickr.css';
+@import 'flatpickr/dist/flatpickr.css';
 
 .banner-text {
     font-weight: bold;

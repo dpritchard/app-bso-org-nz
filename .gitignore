@@ -16,4 +16,6 @@ yarn-error.log
 /public/fonts/vendor/*
 .editorconfig
 .styleci.yml
-TODO.md
+/docs
+/.claude
+/public/build
