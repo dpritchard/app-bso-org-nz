@@ -3,23 +3,21 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-
 use App\File;
 
 class FilePostTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function a_guest_cannot_upload_files()
     {
         $this->post('/admin/file')
            ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_upload_files()
     {
         $this->signIn();
@@ -28,7 +26,7 @@ class FilePostTest extends TestCase
            ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_cannot_upload_files()
     {
         $this->signIn($this->treasurer);
@@ -37,7 +35,7 @@ class FilePostTest extends TestCase
            ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_upload_files()
     {
         $this->signIn($this->webmaster);
@@ -55,7 +53,7 @@ class FilePostTest extends TestCase
         Storage::disk()->assertExists('files/' . $file->hashName());
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_upload_a_private_file()
     {
         $this->signIn($this->webmaster);
@@ -75,7 +73,7 @@ class FilePostTest extends TestCase
         Storage::disk()->assertExists('files/' . $file->hashName());
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_submission_of_invalid_input()
     {
         $this->signIn($this->webmaster);

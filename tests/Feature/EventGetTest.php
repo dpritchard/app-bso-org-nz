@@ -3,11 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-
+use PHPUnit\Framework\Attributes\Test;
 use App\Event;
-use App\Category;
-use App\Contact;
 
 class EventGetTest extends TestCase
 {
@@ -16,8 +13,6 @@ class EventGetTest extends TestCase
         parent::setUp();
 
         $this->event = Event::factory()->create();
-        // $this->event->contact()->associate(create('App\Contact'));
-        // $this->event->category()->associate(Category::find(3));
         $this->event->save();
 
         $this->edit_link = '/admin/event/' . $this->event->hashid . '/edit';
@@ -25,7 +20,7 @@ class EventGetTest extends TestCase
         $this->index_link = '/admin/event';
     }
 
-    /** @test */
+    #[Test]
     public function it_can_display_a_future_event()
     {
         $this->event->start = now()->addWeeks(2);
@@ -39,7 +34,7 @@ class EventGetTest extends TestCase
         $response->assertSee($this->event->description);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_display_a_past_event()
     {
         $this->event->start = now()->subWeeks(2);
@@ -53,7 +48,7 @@ class EventGetTest extends TestCase
         $response->assertSee($this->event->description);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_can_view_event_detials()
     {
         $response = $this->get($this->event->path());
@@ -63,7 +58,7 @@ class EventGetTest extends TestCase
         $response->assertSee($this->event->description);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_edit_link()
     {
         $response = $this->get($this->event->path());
@@ -71,7 +66,7 @@ class EventGetTest extends TestCase
         $response->assertDontSee($this->edit_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_edit_link()
     {
         $this->signIn();
@@ -81,7 +76,7 @@ class EventGetTest extends TestCase
         $response->assertDontSee($this->edit_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_cannot_see_the_edit_link()
     {
         $this->signIn($this->treasurer);
@@ -91,7 +86,7 @@ class EventGetTest extends TestCase
         $response->assertDontSee($this->edit_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_edit_link()
     {
         $this->signIn($this->webmaster);
@@ -101,7 +96,7 @@ class EventGetTest extends TestCase
         $response->assertSee($this->edit_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_super_admin_can_see_the_edit_link()
     {
         $this->signIn($this->super);
@@ -111,14 +106,14 @@ class EventGetTest extends TestCase
         $response->assertSee($this->edit_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_edit_page()
     {
         $this->get($this->edit_link)
              ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_edit_page()
     {
         $this->signIn();
@@ -127,7 +122,7 @@ class EventGetTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_cannot_see_the_edit_page()
     {
         $this->signIn($this->treasurer);
@@ -136,7 +131,7 @@ class EventGetTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_edit_page()
     {
         $this->signIn($this->webmaster);
@@ -145,7 +140,7 @@ class EventGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function the_super_admin_can_see_the_edit_page()
     {
         $this->signIn($this->super);
@@ -154,14 +149,14 @@ class EventGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_create_page()
     {
         $this->get($this->create_link)
              ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_create_page()
     {
         $this->signIn();
@@ -170,7 +165,7 @@ class EventGetTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_cannot_see_the_create_page()
     {
         $this->signIn($this->treasurer);
@@ -179,7 +174,7 @@ class EventGetTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_create_page()
     {
         $this->signIn($this->webmaster);
@@ -188,7 +183,7 @@ class EventGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function the_super_admin_can_see_the_create_page()
     {
         $this->signIn($this->super);
@@ -197,14 +192,14 @@ class EventGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_event_admin_index_page()
     {
         $this->get($this->index_link)
              ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_event_admin_index_page()
     {
         $this->signIn();
@@ -213,7 +208,7 @@ class EventGetTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_event_admin_index_page()
     {
         $this->signIn($this->webmaster);
@@ -222,7 +217,7 @@ class EventGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function the_super_admin_can_see_the_event_admin_index_page()
     {
         $this->signIn($this->super);

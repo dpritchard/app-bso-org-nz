@@ -3,22 +3,21 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-
+use PHPUnit\Framework\Attributes\Test;
 use App\Event;
 use App\Category;
 use App\Contact;
 
 class EventPostTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function a_guest_cannot_create_events()
     {
         $this->post('/admin/event')
              ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_create_events()
     {
         $this->signIn();
@@ -27,7 +26,7 @@ class EventPostTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_user_cannot_create_events()
     {
         $this->signIn($this->treasurer);
@@ -36,7 +35,7 @@ class EventPostTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_create_events()
     {
         $this->signIn($this->webmaster);
@@ -48,7 +47,7 @@ class EventPostTest extends TestCase
              ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function the_super_admin_can_create_events()
     {
         $this->signIn($this->super);
@@ -60,7 +59,7 @@ class EventPostTest extends TestCase
              ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_submission_of_invalid_input()
     {
         $this->signIn($this->webmaster);

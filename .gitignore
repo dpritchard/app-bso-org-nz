@@ -19,3 +19,5 @@ yarn-error.log
 /docs
 /.claude
 /public/build
+.DS_Store
+**/.DS_Store

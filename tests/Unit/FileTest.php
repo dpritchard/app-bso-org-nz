@@ -3,17 +3,13 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Storage;
-
 use App\File;
 
 class FileTest extends TestCase
 {
-
-    /** @test */
+    #[Test]
     public function it_can_get_its_mime_type()
     {
         Storage::fake();

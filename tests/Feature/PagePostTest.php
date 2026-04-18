@@ -3,20 +3,19 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-
+use PHPUnit\Framework\Attributes\Test;
 use App\Page;
 
 class PagePostTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function a_guest_cannot_create_pages()
     {
         $this->post('/admin/page')
              ->assertRedirect(route('login'));
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_create_pages()
     {
         $this->signIn();
@@ -25,7 +24,7 @@ class PagePostTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_user_cannot_create_pages()
     {
         $this->signIn($this->treasurer);
@@ -34,7 +33,7 @@ class PagePostTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_create_pages()
     {
         $this->signIn($this->webmaster);
@@ -46,7 +45,7 @@ class PagePostTest extends TestCase
              ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function the_super_admin_can_create_pages()
     {
         $this->signIn($this->super);
@@ -58,7 +57,7 @@ class PagePostTest extends TestCase
              ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_submission_of_invalid_input()
     {
         $this->signIn($this->webmaster);
@@ -70,7 +69,7 @@ class PagePostTest extends TestCase
            ->assertStatus(422);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_submission_of_a_duplicate_index_uri()
     {
         $this->signIn($this->webmaster);
@@ -86,7 +85,7 @@ class PagePostTest extends TestCase
            ->assertStatus(422);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_submission_of_a_duplicate_uri()
     {
         $this->signIn($this->webmaster);
@@ -102,7 +101,7 @@ class PagePostTest extends TestCase
            ->assertStatus(422);
     }
 
-    /** @test */
+    #[Test]
     public function it_allows_updating_of_index_with_self()
     {
         $this->signIn($this->webmaster);
@@ -116,7 +115,7 @@ class PagePostTest extends TestCase
            ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function it_allows_updating_of_non_index_with_self()
     {
         $this->signIn($this->webmaster);
@@ -130,7 +129,7 @@ class PagePostTest extends TestCase
            ->assertSee($submission['title']);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_updating_to_exisiting_index_uri()
     {
         $this->signIn($this->webmaster);
@@ -149,7 +148,7 @@ class PagePostTest extends TestCase
            ->assertStatus(422);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_allow_updating_to_exisiting_uri()
     {
         $this->signIn($this->webmaster);

@@ -10,7 +10,6 @@ use App\Role;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
     use RefreshDatabase;
 
     protected $super;

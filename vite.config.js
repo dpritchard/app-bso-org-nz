@@ -9,9 +9,7 @@ export default defineConfig({
         },
     },
     server: {
-        cors: {
-            origin: /\.test$/
-        }
+        allowedHosts: ['.test'],
     },
     plugins: [
         laravel({

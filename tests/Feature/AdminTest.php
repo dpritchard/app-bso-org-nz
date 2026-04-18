@@ -3,8 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 
 class AdminTest extends TestCase
 {
@@ -18,14 +17,14 @@ class AdminTest extends TestCase
         $this->subscription_admin_link = '/admin/subscription';
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_dashboard()
     {
         $this->get('/admin')
              ->assertStatus(302);
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_dashboard()
     {
         $this->signIn();
@@ -34,7 +33,7 @@ class AdminTest extends TestCase
              ->assertStatus(403);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_can_see_the_dashboard()
     {
         // $this->withoutExceptionHandling();
@@ -44,7 +43,7 @@ class AdminTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_dashboard()
     {
         $this->signIn($this->webmaster);
@@ -53,7 +52,7 @@ class AdminTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_super_admin_can_see_the_dashboard()
     {
         $this->signIn($this->super);
@@ -62,7 +61,7 @@ class AdminTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_treasurer_can_see_the_subscription_link_only()
     {
         $this->signIn($this->treasurer);
@@ -78,7 +77,7 @@ class AdminTest extends TestCase
         $response->assertSee($this->subscription_admin_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_can_see_the_event_and_page_link_only()
     {
         $this->signIn($this->webmaster);
@@ -94,7 +93,7 @@ class AdminTest extends TestCase
         $response->assertDontSee($this->subscription_admin_link);
     }
 
-    /** @test */
+    #[Test]
     public function a_super_admin_can_see_all_links()
     {
         $this->signIn($this->super);

@@ -3,14 +3,13 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Storage;
-
 use App\File;
 
 class FileGetTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function a_guest_cannot_access_a_private_file()
     {
         $file = File::factory()->create(['visibility' => 'private']);
@@ -23,7 +22,7 @@ class FileGetTest extends TestCase
              ->get($file->path());
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_can_access_a_private_file()
     {
         $this->signIn();
@@ -36,7 +35,7 @@ class FileGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_file_admin_index()
     {
         $this->get('/admin/file')
@@ -47,7 +46,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file');
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_file_admin_index()
     {
         $this->signIn();
@@ -60,7 +59,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file');
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_cannot_see_the_file_admin_index()
     {
         $this->signIn($this->webmaster);
@@ -73,7 +72,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file');
     }
 
-    /** @test */
+    #[Test]
     public function a_super_admin_can_see_the_file_admin_index()
     {
         $this->signIn($this->super);
@@ -82,7 +81,7 @@ class FileGetTest extends TestCase
              ->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function a_guest_cannot_see_the_file_create_page()
     {
         $this->get('/admin/file/create')
@@ -93,7 +92,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file/create');
     }
 
-    /** @test */
+    #[Test]
     public function a_regular_user_cannot_see_the_file_create_page()
     {
         $this->signIn();
@@ -106,7 +105,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file/create');
     }
 
-    /** @test */
+    #[Test]
     public function a_webmaster_cannot_see_the_file_create_page()
     {
         $this->signIn($this->webmaster);
@@ -119,7 +118,7 @@ class FileGetTest extends TestCase
              ->get('/admin/file/create');
     }
 
-    /** @test */
+    #[Test]
     public function a_super_admin_can_see_the_file_create_page()
     {
         $this->signIn($this->super);
