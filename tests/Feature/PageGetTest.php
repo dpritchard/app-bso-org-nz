@@ -46,6 +46,34 @@ class PageGetTest extends TestCase
     }
 
     #[Test]
+    public function it_renders_the_title_inline_without_paragraph_tags()
+    {
+        // Title uses inline mode — <strong> should appear directly in <h1>, not wrapped in <p>
+        $page = Page::factory()->create(['title' => 'Hello **world**']);
+
+        $response = $this->get($page->uri);
+
+        $response->assertSee('<h1>Hello <strong>world</strong></h1>', false);
+    }
+
+    #[Test]
+    public function it_strips_script_tags_from_page_title_and_body()
+    {
+        // Text must precede the injection so CommonMark treats it as a paragraph
+        // (a line starting with <script> is parsed as an HTML block and absorbs trailing text)
+        $page = Page::factory()->create([
+            'title' => 'Title <script>alert(1)</script>',
+            'body'  => 'Body <script>alert(2)</script>',
+        ]);
+
+        $response = $this->get($page->uri);
+
+        $response->assertDontSee('<script>', false);
+        $response->assertSee('Title', false);
+        $response->assertSee('Body', false);
+    }
+
+    #[Test]
     public function it_throws_a_404_when_not_found()
     {
         $this->get('/a/missing/page')
