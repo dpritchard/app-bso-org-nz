@@ -26,10 +26,10 @@
         <p class="mb-0">{{ $event->category->type }} on {{ $event->start->format('l jS \\of F Y\\, h:i A') }} <small>({{ $event->start->diffForHumans() }})</small></p>
         <p class="mb-0">Contact: {{ $event->contact->name }}
             @if  ($event->contact->email)
-            | <i class="fas fa-envelope"></i> {{ $event->contact->email }}
+            | <span style="white-space: nowrap"><i class="fas fa-envelope"></i> {{ $event->contact->email }}</span>
             @endif
             @if  ($event->contact->phone)
-            | <i class="fas fa-phone"></i> {{ $event->contact->phone }}
+            | <span style="white-space: nowrap"><i class="fas fa-phone"></i> {{ $event->contact->phone }}</span>
             @endif
         </p>
     </div>
