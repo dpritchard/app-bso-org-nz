@@ -14,7 +14,7 @@
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
  -->
 
-	<p>Welcome to the 2026 BSO Photo Competition. This year, we received 48 photos, from 11 photographers, across the 3 categories.</p>
+	<p>Welcome to the 2025 BSO Photo Competition. This year, we received 48 photos, from 11 photographers, across the 3 categories.</p>
 
 	<p>Our judges announced the overall category winners on May 14 2025 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members.</p>
 
