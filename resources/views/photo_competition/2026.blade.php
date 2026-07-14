@@ -4,6 +4,8 @@
 <div class="mb-5">
 	<h1>2026 Photo Competition</h1>
 	<!-- Notes for 2027... Need to streamline this: Short Title. Author. Caption (optional). Set data in php and pass to JS. Supress author until voting finished.-->
+<!--
+
 	<p>Welcome to the 2026 BSO Photo Competition. This year we have received 68 photos, from 16 photographers, across the 3 categories.</p>
 
 	<p>Our judges will decide the overall category winners and their decision will be announced on June 10 2026 at the AGM. However, we also have a <em>People’s Choice Award</em> which is up to you!</p>
@@ -12,40 +14,51 @@
 	<p>BSO members may vote for as many as three of their favourite photos (votes are not limited to one per category). You may browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites, from which you can select up to three photos to vote for.</p>
 	<p>Note that this webpage does not record your votes directly - it simply helps you browse and select your favourites. Information on how to cast your vote via email will be displayed once you have selected at least one photo to vote for.</p>
 
+ -->
 
-<!--
 	<p>Welcome to the 2026 BSO Photo Competition. This year, we received 68 photos, from 16 photographers, across the 3 categories.</p>
 
-	<p>Our judges announced the overall category winners on June 10 2026 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members.</p>
+	<p>Our judges announced the overall category winners on June 10 2026 at the AGM. At the same time we announced the <em>People’s Choice Award</em> chosen by BSO members. This year we had a tie for the <em>People’s Choice Award</em>.</p>
 
 	<h3>Category Winner: Plant Portrait</h3>
-	<p>Also joint winner for the <em>People’s Choice Award</em></p>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption">CAP</figcaption>
+		<img src="https://bso.org.nz/f/8d11n8/1_15_double_star_stinkhorns.jpg" class="figure-img img-fluid rounded" alt="Double Star Stinkhorns">
+		<figcaption class="figure-caption"><em>Double Star Stinkhorns</em> by Lily Donahue. Devil’s fingers fungus embracing off the track at Cobb Reservoir in Kahurangi National Park.</figcaption>
 	</figure>
 
 	<h3>Category Winner: Plants in the Landscape</h3>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption">CAP</figcaption>
+		<img src="https://bso.org.nz/f/86nvdx/2_19_theres_gold_in_them_thar_hills.jpg" class="figure-img img-fluid rounded" alt="Theres gold in them thar hills">
+		<figcaption class="figure-caption"><em>There's gold in them thar hills</em> by Rach Baxter. Old Man Range.</figcaption>
 	</figure>
 
-	<h3>Category Winner: Life Under the Lens</h3>
-	<p>Also joint winner for the <em>People’s Choice Award</em></p>
+	<h3>Category Winner: Pest Plant Pics</h3>
+	<p></p>
 	<figure class="figure">
-		<img src="" class="figure-img img-fluid rounded" alt="">
-		<figcaption class="figure-caption">CAP</figcaption>
+		<img src="https://bso.org.nz/f/xvy75x/3_6_riparian_beauty.jpg" class="figure-img img-fluid rounded" alt="Riparian beauty">
+		<figcaption class="figure-caption"><em>Riparian beauty</em> by John Barkla. Weed or not, montbretia add colour to the sombre streamside.</figcaption>
+	</figure>
+
+	<h3><em>People’s Choice Award (1/2)</em></h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/8355px/1_22_resilient_leatherwood.jpg" class="figure-img img-fluid rounded" alt="Resilient leatherwood">
+		<figcaption class="figure-caption"><em>Resilient leatherwood</em> by John Barkla. Tough leatherwood (<em>Macrolearia colensoi</em>) stands defiant on Rakiura/Stewart Island's Tin Range.</figcaption>
+	</figure>
+
+	<h3><em>People’s Choice Award (2/2)</em></h3>
+	<figure class="figure">
+		<img src="https://bso.org.nz/f/8ml9rx/2_14_redwoods_in_fog.jpg" class="figure-img img-fluid rounded" alt="Redwoods in fog">
+		<figcaption class="figure-caption"><em>Redwoods in Fog</em> by John Barkla. Crowns of giant redwoods disappear into the thickening fog.</figcaption>
 	</figure>
 
 	<h3>Viewing Information</h3>
 	<p>We set this page up for members choice voting but now you may now use it to browse the photos by clicking on the category buttons below. You can optionally assemble a shortlist of favourites.</p>
- -->
+
 
 </div>
 <div class="d-flex align-items-center">
 	<v-photo-vote
-	v-bind:allow-votes="true"
+	v-bind:allow-votes="false"
     v-bind:categories="[
     	{code: 1, name: 'Plant Portrait', description: ''},
     	{code: 2, name: 'Plants in the Landscape', description: ''},
@@ -103,7 +116,7 @@
 {f: 'https://bso.org.nz/f/86n9dx/2_11_silverpeaks_tapestry_1.jpg', c: 'Hypogymnia sp. hidden in subalpine scrub. Taken on 35mm film'},
 {f: 'https://bso.org.nz/f/x712zx/2_12_silverpeaks_tapestry_2.jpg', c: 'Subalpine scrub along the Silverpeaks track. Taken on 35mm film'},
 {f: 'https://bso.org.nz/f/xzkp1x/2_13_alpine_veronica.jpg', c: 'Veronica odora cluster among the alpine rocks of the Rock and Pillar Range'},
-{f: 'https://bso.org.nz/f/8ml9rx/2_14_redwoods_in_fog.jpg', c: 'Crowns of giant redwoods disappear into the thickening fog '},
+{f: 'https://bso.org.nz/f/8ml9rx/2_14_redwoods_in_fog.jpg', c: 'Crowns of giant redwoods disappear into the thickening fog'},
 {f: 'https://bso.org.nz/f/q2kzwq/2_15_clavulina_coral_fungus.jpg', c: 'Coral fungus ectomicorrhizzal on mountain beech'},
 {f: 'https://bso.org.nz/f/xzk91x/2_16_plant_life_on_whenua_hou.jpg', c: 'Plant life on Whenua Hou'},
 {f: 'https://bso.org.nz/f/q1jrkq/2_17_rainforest_beauty_in_nepal.jpg', c: 'Platystemma contains a single species: Platystemma violoides with only one Gesneriaceae relative in New Zealand: Rhabdothamnus solandri (taurepo)'},
